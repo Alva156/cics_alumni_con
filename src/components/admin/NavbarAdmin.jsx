@@ -4,6 +4,7 @@ import { MdOutlineLogout } from "react-icons/md";
 
 const NavbarAdmin = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -69,7 +70,9 @@ const NavbarAdmin = () => {
                         <a href="/admin-certifications">Certifications</a>
                       </li>
                       <li className="p-1">
-                        <a href="/admin-documentrequest">Document Request Steps</a>
+                        <a href="/admin-documentrequest">
+                          Document Request Steps
+                        </a>
                       </li>
                       <li className="p-1">
                         <a href="/admin-job">Job/Internship Referrals</a>
@@ -140,10 +143,22 @@ const NavbarAdmin = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn btn-ghost px-5 flex items-center gap-2 ">
-            ADMIN <MdOutlineLogout size={24} />
+        <div className="navbar-end relative">
+          <a
+            className="btn btn-ghost px-3 flex items-center gap-2 mr-1.5 md:mr-7 "
+            onMouseEnter={() => setIsTooltipVisible(true)}
+            onMouseLeave={() => setIsTooltipVisible(false)}
+          >
+            ADMIN
+            <MdOutlineLogout size={24} />
           </a>
+
+          {/* Tooltip */}
+          {isTooltipVisible && (
+            <div className="absolute top-full mb-2 md:mt-1  mr-10 md:mr-12 bg-gray-800 text-white text-xxs md:text-xs rounded py-1 px-1.5 z-10 ">
+              Logout
+            </div>
+          )}
         </div>
       </div>
     </div>
