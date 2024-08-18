@@ -6,7 +6,9 @@ export default {
       colors: {
         bgray: "#F6F6F6",
         hgray: "#D9D9D9",
+        fgray: "#3D3C3C",
         white: "#FFFEFE",
+        grayt: "#FFFFFF",
         black: "#000000",
       },
       // fontFamily: {
