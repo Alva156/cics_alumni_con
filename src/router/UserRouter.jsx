@@ -12,6 +12,20 @@ import DocumentRequest from "../pages/User/Contents/DocumentRequest";
 import Events from "../pages/User/Contents/Events";
 import News from "../pages/User/Contents/News";
 import Job from "../pages/User/Contents/Job";
+import Admin from "../layout/Admin";
+import AdminAccount from "../pages/admin/AdminAccount";
+import AdminAlumni from "../pages/admin/AdminAlumni";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdminHomepage from "../pages/admin/AdminHomepage";
+import AdminReports from "../pages/admin/AdminReports";
+import AdminThreads from "../pages/admin/AdminThreads";
+import AdminSurveyTool from "../pages/admin/AdminSurveyTool";
+import AdminCertifications from "../pages/admin/Contents/AdminCertifications";
+import AdminCompanies from "../pages/admin/Contents/AdminCompanies";
+import AdminDocumentRequest from "../pages/admin/Contents/AdminDocumentRequest";
+import AdminEvents from "../pages/admin/Contents/AdminEvents";
+import AdminJob from "../pages/admin/Contents/AdminJob";
+import AdminNews from "../pages/admin/Contents/AdminNews";
 
 
 const router = createBrowserRouter([
@@ -73,6 +87,65 @@ const router = createBrowserRouter([
       
     ],
   },
+  {
+    path: "/",
+    element: <Admin />,
+    children: [
+      {
+        path: "/admin-account",
+        element: <AdminAccount />,
+      },
+      {
+        path: "/admin-alumni",
+        element: <AdminAlumni />,
+      },
+      {
+        path: "/admin-dashboard",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "/admin-home",
+        element: <AdminHomepage />,
+      },
+      {
+        path: "/admin-reports",
+        element: <AdminReports />,
+      },
+      {
+        path: "/admin-surveytool",
+        element: <AdminSurveyTool />,
+      },
+      {
+        path: "/admin-threads",
+        element: <AdminThreads />,
+      },
+      {
+        path: "/admin-certifications",
+        element: <AdminCertifications />,
+      },
+      {
+        path: "/admin-companies",
+        element: <AdminCompanies />,
+      },
+      {
+        path: "/admin-documentrequest",
+        element: <AdminDocumentRequest />,
+      },
+      {
+        path: "/admin-events",
+        element: <AdminEvents />,
+      },
+      {
+        path: "/admin-job",
+        element: <AdminJob />,
+      },
+      {
+        path: "/admin-news",
+        element: <AdminNews />,
+      },
+      
+    ],
+  }
 
 ]);
 
