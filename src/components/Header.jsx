@@ -28,6 +28,3 @@ const Header = () => {
 };
 
 export default Header;
-// &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-//             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-//             &nbsp; &nbsp; &nbsp;
