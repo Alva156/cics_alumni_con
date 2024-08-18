@@ -13,7 +13,7 @@ export default {
       //   primary: ["Roboto", "sans-serif"],
       // },
       fontSize: {
-        xxs: "0.5rem", // Custom size smaller than text-xs
+        xxs: "0.5rem",
       },
     },
   },
