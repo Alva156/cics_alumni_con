@@ -44,13 +44,13 @@ const Navbar = () => {
                   <a href="/">Home</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a href="/userprofile">User Profile</a>
+                  <a href="/user-userprofile">User Profile</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a href="/survey">Survey</a>
+                  <a href="/user-survey">Survey</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a>Threads</a>
+                  <a href="/user-threads">Threads</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <details>
@@ -78,10 +78,10 @@ const Navbar = () => {
                   </details>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a>Alumni</a>
+                  <a href="/user-alumni">Alumni</a>
                 </li>
                 <li className="p-2.5 ">
-                  <a>Chatbot</a>
+                  <a href="/user-chatbot">Chatbot</a>
                 </li>
               </ul>
             )}
@@ -93,13 +93,13 @@ const Navbar = () => {
               <a href="/">Home</a>
             </li>
             <li className="px-2.5 pr-8">
-              <a href="/userprofile">User Profile</a>
+              <a href="/user-userprofile">User Profile</a>
             </li>
             <li className="px-2.5 pr-8">
-              <a href="/survey">Survey</a>
+              <a href="/user-survey">Survey</a>
             </li>
             <li className="px-2.5 pr-8">
-              <a>Threads</a>
+              <a href="/user-threads">Threads</a>
             </li>
             <li className="px-2.5 pr-8">
               <details>
@@ -127,10 +127,10 @@ const Navbar = () => {
               </details>
             </li>
             <li className="px-2.5 pr-8">
-              <a>Alumni</a>
+              <a href="/user-alumni">Alumni</a>
             </li>
             <li className="px-2.5 ">
-              <a>Chatbot</a>
+              <a href="/user-chatbot">Chatbot</a>
             </li>
           </ul>
         </div>
