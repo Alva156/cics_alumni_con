@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        bgray: "#F6F6F6",
-        hgray: "#D9D9D9",
-        fgray: "#3D3C3C",
+        bgray: "#F6F6F6", //backgound color of our website
+        hgray: "#D9D9D9", //Header color of our website
+        fgray: "#3D3C3C", //Footer color of our website
         white: "#FFFEFE",
-        grayt: "#FFFFFF",
+        grayt: "#FFFFFF", //gray text of our website
         black: "#000000",
       },
       // fontFamily: {

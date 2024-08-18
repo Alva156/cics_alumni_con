@@ -21,7 +21,6 @@ const Header = () => {
         <p className="text-black font-light text-sm md:text-xl  ml-2 mr-2 ">
           Alumni Connect
         </p>
-        {/* tite */}
       </div>
       <img src={cicslogo} alt="CICS Logo" className="h-11 ml-5 mr-4 md:h-16" />
     </header>

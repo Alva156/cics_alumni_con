@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../../components/user/Navbar";
-import Navbar_admin from "../../components/admin/Navbar_admin";
+import Navbar_admin from "../../components/admin/NavbarAdmin";
 import Header from "../../components/Header";
 import "../../App.css";
 
-const Homepage_admin = () => {
+const HomepageAdmin = () => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const Homepage_admin = () => {
   );
 };
 
-export default Homepage_admin;
+export default HomepageAdmin;

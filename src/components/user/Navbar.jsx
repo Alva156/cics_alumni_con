@@ -41,13 +41,13 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-white z-[1] mt-3 w-72 p-2 shadow "
               >
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a>Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a>User Profile</a>
+                  <a href="/userprofile">User Profile</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
-                  <a>Survey</a>
+                  <a href="/survey">Survey</a>
                 </li>
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <a>Threads</a>
@@ -90,13 +90,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex py-1 ">
           <ul className="menu menu-horizontal px-1 ">
             <li className="px-2.5 pr-8 ">
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li className="px-2.5 pr-8">
-              <a>User Profile</a>
+              <a href="/userprofile">User Profile</a>
             </li>
             <li className="px-2.5 pr-8">
-              <a>Survey</a>
+              <a href="/survey">Survey</a>
             </li>
             <li className="px-2.5 pr-8">
               <a>Threads</a>

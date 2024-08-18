@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 import { MdOutlineLogout } from "react-icons/md";
 
-const Navbar_admin = () => {
+const NavbarAdmin = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -150,4 +150,4 @@ const Navbar_admin = () => {
   );
 };
 
-export default Navbar_admin;
+export default NavbarAdmin;
