@@ -4,13 +4,13 @@ import Navbar_admin from "../../components/admin/Navbar_admin";
 import Header from "../../components/Header";
 import "../../App.css";
 
-const Homepage = () => {
+const Homepage_admin = () => {
   return (
     <div>
       <Header />
-      <Navbar />
+      <Navbar_admin />
     </div>
   );
 };
 
-export default Homepage;
+export default Homepage_admin;
