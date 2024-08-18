@@ -4,7 +4,7 @@ import cicslogo from "../assets/cicslogo.png";
 
 const Header = () => {
   return (
-    <header className="bg-hgray  max-w-screen-2xl container mx-auto p-2 flex items-center justify-between ">
+    <header className="bg-hgray max-w-screen-2xl container mx-auto md:px-12 py-3 flex items-center justify-between px-2">
       <div className="flex items-center">
         <img src={ustlogo} alt="UST Logo" className="h-11  mr-6 ml-4 md:h-16" />
         <div className="col">

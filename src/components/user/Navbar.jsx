@@ -57,22 +57,22 @@ const Navbar = () => {
                     <summary>Contents</summary>
                     <ul className="p-2.5">
                       <li className="p-1">
-                        <a>Companies</a>
+                        <a href="/user-companies">Companies</a>
                       </li>
                       <li className="p-1">
-                        <a>News</a>
+                        <a href="/user-news">News</a>
                       </li>
                       <li className="p-1">
-                        <a>Events</a>
+                        <a href="/user-events">Events</a>
                       </li>
                       <li className="p-1">
-                        <a>Certifications</a>
+                        <a href="/user-certifications">Certifications</a>
                       </li>
                       <li className="p-1">
-                        <a>Document Request Steps</a>
+                        <a href="/user-documentrequest">Document Request Steps</a>
                       </li>
                       <li className="p-1">
-                        <a>Job/Internship Referrals</a>
+                        <a href="/user-job">Job/Internship Referrals</a>
                       </li>
                     </ul>
                   </details>
@@ -87,7 +87,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex py-1 ">
+        <div className="navbar-center hidden lg:flex py-1">
           <ul className="menu menu-horizontal px-1 ">
             <li className="px-2.5 pr-8 ">
               <a href="/">Home</a>
@@ -106,22 +106,22 @@ const Navbar = () => {
                 <summary>Contents</summary>
                 <ul className="px-2.5 bg-white pr-8">
                   <li className="p-1 border-b border-hgray last:border-b-0">
-                    <a>Companies</a>
+                    <a href="/user-companies">Companies</a>
                   </li>
                   <li className="px-1 border-b border-hgray last:border-b-0">
-                    <a>News</a>
+                    <a href="/user-news">News</a>
                   </li>
                   <li className="px-1 border-b border-hgray last:border-b-0">
-                    <a>Events</a>
+                    <a href="/user-events">Events</a>
                   </li>
                   <li className="px-1 border-b border-hgray last:border-b-0">
-                    <a>Certifications</a>
+                    <a href="/user-certifications">Certifications</a>
                   </li>
                   <li className="px-1 border-b border-hgray last:border-b-0">
-                    <a>Document Request Steps</a>
+                    <a href="/user-documentrequest">Document Request Steps</a>
                   </li>
                   <li className="px-1 border-b border-hgray last:border-b-0">
-                    <a>Job/Internship Referrals</a>
+                    <a href="/user-job">Job/Internship Referrals</a>
                   </li>
                 </ul>
               </details>
