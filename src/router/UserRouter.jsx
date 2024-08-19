@@ -28,6 +28,9 @@ import AdminJob from "../pages/admin/Contents/AdminJob";
 import AdminNews from "../pages/admin/Contents/AdminNews";
 import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
+import ForgotPassword from "../pages/authentication/ForgotPassword";
+import ResetPassword from "../pages/authentication/ResetPassword";
+import VerifyAccount from "../pages/authentication/VerifyAccount";
 
 const router = createBrowserRouter([
   {
@@ -149,6 +152,18 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/forgotpassword",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/resetpassword",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/verifyaccount",
+    element: <VerifyAccount />,
   },
 ]);
 
