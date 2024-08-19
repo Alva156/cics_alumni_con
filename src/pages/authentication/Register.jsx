@@ -19,10 +19,10 @@ function Register() {
   return (
     <>
       <Header />
-      <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+      <div className="flex flex-col md:flex-row min-h-screen md:h-screen overflow-hidden">
         {/* Left Form */}
         <div className="w-full md:w-1/2 p-3 md:p-5 flex flex-col justify-start bg-white">
-          <div className="flex flex-col px-4 md:px-8">
+          <div className="flex flex-col px-4 md:px-8 pb-4">
             <div className="mb-3">
               <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1 text-left">
                 Welcome, CICS Alumni!
@@ -32,6 +32,7 @@ function Register() {
               </p>
             </div>
 
+            {/* Form Fields */}
             <label className="block mb-1 mt-2 text-xs font-medium">
               Student ID Number
             </label>
