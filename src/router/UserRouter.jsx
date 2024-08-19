@@ -26,7 +26,8 @@ import AdminDocumentRequest from "../pages/admin/Contents/AdminDocumentRequest";
 import AdminEvents from "../pages/admin/Contents/AdminEvents";
 import AdminJob from "../pages/admin/Contents/AdminJob";
 import AdminNews from "../pages/admin/Contents/AdminNews";
-
+import Login from "../pages/authentication/Login";
+import Register from "../pages/authentication/Register";
 
 const router = createBrowserRouter([
   {
@@ -81,10 +82,6 @@ const router = createBrowserRouter([
         path: "/user-news",
         element: <News />,
       },
-
-      
-      
-      
     ],
   },
   {
@@ -143,10 +140,16 @@ const router = createBrowserRouter([
         path: "/admin-news",
         element: <AdminNews />,
       },
-      
     ],
-  }
-
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
 ]);
 
 export default router;
