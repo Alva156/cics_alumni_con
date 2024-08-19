@@ -318,15 +318,14 @@ const UserProfile = () => {
           </div>
 
           {/* BOTTOM BUTTONS */}
-          <div className="flex justify-center mt-16">
+          <div className="flex justify-center mt-16 space-x-3">
             <div className="">
-              <button className="btn md:w-64 w-56 bg-fgray text-white">
+              <button className="btn md:w-64 w-52 bg-fgray text-white">
                 Cancel
               </button>
             </div>
-            
             <div className="">
-              <button className="btn md:w-64 w-56 bg-green text-white">
+              <button className="btn md:w-64 w-52 bg-green text-white">
                 Save
               </button>
             </div> 
