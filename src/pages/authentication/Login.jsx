@@ -17,7 +17,7 @@ function Login() {
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         {/* Left Form */}
         <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-start bg-white">
-          <div className="flex flex-col justify-start h-full px-4 md:px-8"> 
+          <div className="flex flex-col justify-start h-full px-4 md:px-8">
             <div className="mb-6">
               <h1 className="text-2xl md:text-3xl font-bold mb-2 text-left">
                 Welcome back!
@@ -60,21 +60,21 @@ function Login() {
               Forgot Password?
             </a>
 
-            <button className="bg-[#BE142E] text-white font-bold text-lg py-3 px-6 rounded w-full mb-6 transition duration-300 ease-in-out hover:bg-[#a10c2b]">
+            <button className="bg-[#BE142E] text-white font-bold text-lg py-3 px-6 w-full mb-6 transition duration-300 ease-in-out hover:bg-[#a10c2b]">
               SIGN IN
             </button>
 
             <p className="text-left mb-4 mt-8 text-sm">
               Don&apos;t have an account?
             </p>
-            <button className="bg-[#2D2B2B] text-white font-bold text-lg py-3 px-6 rounded w-full transition duration-300 ease-in-out hover:bg-[#1a1a1a]">
+            <button className="bg-[#2D2B2B] text-white font-bold text-lg py-3 px-6 w-full transition duration-300 ease-in-out hover:bg-[#1a1a1a]">
               SIGN UP
             </button>
           </div>
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-1/2 h-full flex-shrink-0">
+        <div className="relative w-full md:w-1/2 h-full flex-shrink-0 hidden md:block">
           <div className="absolute inset-0 bg-[#5D0000] opacity-30"></div>
           <img
             src={signinImage}

@@ -32,7 +32,7 @@ function ForgotPassword() {
               Mobile Number
             </label>
             <input
-              type="mobile number"
+              type="tel"
               className="mb-2 p-2 border border-black bg-[#D9D9D9] w-full"
               style={{ height: "40px" }}
             />
@@ -54,7 +54,7 @@ function ForgotPassword() {
               Enter OTP
             </label>
             <input
-              type="otp"
+              type="text"
               className="mb-3 p-2 border border-black bg-[#D9D9D9] w-full"
               style={{ height: "40px" }}
             />
@@ -74,7 +74,7 @@ function ForgotPassword() {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-1/2 h-full flex-shrink-0">
+        <div className="relative w-full md:w-1/2 h-full flex-shrink-0 hidden md:block">
           <div className="absolute inset-0 bg-[#5D0000] opacity-30"></div>
           <img
             src={forgotpasswordImage}

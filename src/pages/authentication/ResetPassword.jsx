@@ -34,7 +34,7 @@ function ResetPassword() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your new password"
-                className="p-2 border border-black bg-[#D9D9D9] rounded w-full pr-10"
+                className="p-2 border border-black bg-[#D9D9D9] w-full pr-10"
                 style={{ height: "40px" }}
               />
               <span
@@ -55,7 +55,7 @@ function ResetPassword() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Confirm your new password"
-                className="p-2 border border-black bg-[#D9D9D9] rounded w-full pr-10"
+                className="p-2 border border-black bg-[#D9D9D9] w-full pr-10"
                 style={{ height: "40px" }}
               />
               <span
@@ -80,7 +80,7 @@ function ResetPassword() {
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full md:w-1/2 h-full flex-shrink-0">
+        <div className="relative w-full md:w-1/2 h-full flex-shrink-0 hidden md:block">
           <div className="absolute inset-0 bg-[#5D0000] opacity-30"></div>
           <img
             src={resetpasswordImage}
@@ -89,7 +89,6 @@ function ResetPassword() {
           />
         </div>
       </div>
-      <div>Reset Password</div>
     </>
   );
 }
