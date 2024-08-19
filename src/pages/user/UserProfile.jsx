@@ -203,7 +203,7 @@ const UserProfile = () => {
           <div className="flex items-center">
             <div className="text-xl py-4 mt-4 w-1/2">Attachments</div>
             <div className="text-xl py-4 mt-4 w-1/2 text-end">
-              <button className="btn btn-sm md:w-64 w-36 bg-green text-white" onClick={addAttachment}>
+              <button className="btn btn-sm w-36 bg-green text-white" onClick={addAttachment}>
                 +
               </button>
             </div>
@@ -225,7 +225,7 @@ const UserProfile = () => {
           <div className="flex items-center">
             <div className="text-lg w-1/2">Secondary Education</div>
             <div className="text-lg w-1/2 text-end">
-              <button className="btn btn-sm md:w-64 w-36 bg-green text-white" onClick={addSecondaryEducationSection}>
+              <button className="btn btn-sm w-36 bg-green text-white" onClick={addSecondaryEducationSection}>
                 +
               </button>
             </div>
@@ -249,7 +249,7 @@ const UserProfile = () => {
           <div className="flex items-center mt-8">
             <div className="text-lg w-1/2">Tertiary Education</div>
             <div className="text-lg w-1/2 text-end">
-              <button className="btn btn-sm md:w-64 w-36 bg-green text-white" onClick={addTertiaryEducationSection}>
+              <button className="btn btn-sm w-36 bg-green text-white" onClick={addTertiaryEducationSection}>
                 +
               </button>
             </div>
@@ -278,7 +278,7 @@ const UserProfile = () => {
           <div className="flex items-center">
             <div className="text-xl py-4 mt-4 w-1/2">Career Background</div>
             <div className="text-xl py-4 mt-4 w-1/2 text-end">
-              <button className="btn btn-sm md:w-64 w-36 bg-green text-white" onClick={addCompanySection}>
+              <button className="btn btn-sm w-36 bg-green text-white" onClick={addCompanySection}>
                 +
               </button>
             </div>
