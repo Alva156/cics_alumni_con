@@ -17,7 +17,7 @@ function Login() {
       <div className="flex flex-col md:flex-row h-screen overflow-hidden">
         {/* Left Form */}
         <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-start bg-white">
-          <div className="flex flex-col justify-start h-full">
+          <div className="flex flex-col justify-start h-full px-4 md:px-8"> {/* Added padding here */}
             <div className="mb-6">
               <h1 className="text-2xl md:text-3xl font-bold mb-2 text-left">
                 Welcome back!
