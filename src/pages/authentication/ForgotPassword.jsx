@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../components/Header";
-import resetpasswordImage from "../../assets/resetpassword_image.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import forgotpasswordImage from "../../assets/forgotpassword_image.jpg";
 
 function ForgotPassword() {
   const [showPassword, setShowPassword] = useState(false);
@@ -79,8 +77,8 @@ function ForgotPassword() {
         <div className="relative w-full md:w-1/2 h-full flex-shrink-0">
           <div className="absolute inset-0 bg-[#5D0000] opacity-30"></div>
           <img
-            src={resetpasswordImage}
-            alt="Reset Password illustration"
+            src={forgotpasswordImage}
+            alt="Forgot Password illustration"
             className="object-cover w-full h-full"
           />
         </div>
