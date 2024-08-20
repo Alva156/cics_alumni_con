@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 
 
-const UserProfile = () => {
+function UserProfile () {
   const [attachments, setAttachments] = useState([{ id: 1 }]);
 
   const addAttachment = () => {
