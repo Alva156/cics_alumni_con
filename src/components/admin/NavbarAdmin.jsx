@@ -39,7 +39,7 @@ const NavbarAdmin = () => {
             {isDropdownOpen && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-white z-[1] mt-3 w-72 p-2 shadow "
+                className="menu menu-sm dropdown-content bg-white z-20 mt-3 w-72 p-2 shadow "
               >
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <a href="/admin-home">Home</a>
@@ -56,7 +56,7 @@ const NavbarAdmin = () => {
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <details>
                     <summary>Contents</summary>
-                    <ul className="p-2.5">
+                    <ul className="p-2.5 z-50" >
                       <li className="p-1">
                         <a href="/admin-companies">Companies</a>
                       </li>
@@ -110,7 +110,7 @@ const NavbarAdmin = () => {
             <li className="px-2.5 pr-8">
               <details>
                 <summary>Contents</summary>
-                <ul className="px-2.5 bg-white pr-8">
+                <ul className="px-2.5 bg-white pr-8 z-20">
                   <li className="p-1 border-b border-hgray last:border-b-0">
                     <a href="/admin-companies">Companies</a>
                   </li>
