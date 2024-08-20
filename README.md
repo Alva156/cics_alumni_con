@@ -11,6 +11,11 @@ Currently, two official plugins are available:
 * TO RUN:
 1. `npm install` 
 2. `npm run dev` to start the development server
+3. npm install @mui/material @emotion/react @emotion/styled
+4. npm install dayjs
+5. npm i flatpickr --save
+
+
 
 * PUSHING IN GITHUB DESKTOP
 1. choose branch
