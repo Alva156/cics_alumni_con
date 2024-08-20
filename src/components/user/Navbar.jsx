@@ -56,7 +56,7 @@ const Navbar = () => {
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <details>
                     <summary>Contents</summary>
-                    <ul className="p-2.5">
+                    <ul className="p-2.5 z-50">
                       <li className="p-1">
                         <a href="/user-companies">Companies</a>
                       </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex py-1">
           <ul className="menu menu-horizontal px-1 ">
-            <li className="px-2.5 pr-8 ">
+            <li className="px-2.5 pr-8">
               <a href="/">Home</a>
             </li>
             <li className="px-2.5 pr-8">
@@ -107,7 +107,7 @@ const Navbar = () => {
             <li className="px-2.5 pr-8">
               <details>
                 <summary>Contents</summary>
-                <ul className="px-2.5 bg-white pr-8">
+                <ul className="px-2.5 bg-white pr-8 z-10">
                   <li className="p-1 border-b border-hgray last:border-b-0">
                     <a href="/user-companies">Companies</a>
                   </li>
