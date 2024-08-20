@@ -14,6 +14,7 @@ Currently, two official plugins are available:
 3. npm install @mui/material @emotion/react @emotion/styled
 4. npm install dayjs
 5. npm i flatpickr --save
+6. npm install react-select
 
 
 
