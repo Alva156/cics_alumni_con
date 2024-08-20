@@ -14,9 +14,11 @@ export default {
         blue: "#1458BE",
         orange: "#E58008",
       },
-      // fontFamily: {
-      //   primary: ["Roboto", "sans-serif"],
-      // },
+      letterSpacing: {
+        "extra-wide": "0.5em",
+      },
+      height: { 128: "30rem", 130: "35rem" },
+
       fontSize: {
         xxs: "0.5rem",
       },

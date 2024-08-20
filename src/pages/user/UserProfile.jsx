@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 
 
-const UserProfile = () => {
+function UserProfile () {
   const [attachments, setAttachments] = useState([{ id: 1 }]);
 
   const addAttachment = () => {
@@ -40,7 +40,7 @@ const UserProfile = () => {
   
   return (
     <>
-      <div className="lg:px-20 md:px-10 px-6 py-2 container mb-12">
+      <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
         {/* image */}
         <div className="page-title">User Profile</div>
         <img src={profileImage} alt="Profile" className="h-40 w-40 border-2"/>
