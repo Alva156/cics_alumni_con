@@ -11,6 +11,7 @@ export default {
         grayt: "#FFFFFF", //gray text of our website
         black: "#000000",
         green: "#056E34",
+        blue: "#1458BE",
       },
       // fontFamily: {
       //   primary: ["Roboto", "sans-serif"],
