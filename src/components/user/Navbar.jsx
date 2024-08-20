@@ -106,11 +106,7 @@ const Navbar = () => {
             <li className="px-2.5 pr-8">
               <details>
                 <summary>Contents</summary>
-<<<<<<< Updated upstream
-                <ul className="px-2.5 bg-white pr-8 z-10">
-=======
                 <ul className="px-2.5 bg-white pr-8 z-20">
->>>>>>> Stashed changes
                   <li className="p-1 border-b border-hgray last:border-b-0">
                     <a href="/user-companies">Companies</a>
                   </li>
