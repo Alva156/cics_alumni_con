@@ -1,13 +1,14 @@
 import React from "react";
+import { FaRegCopyright } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-fgray p-4 pb-16 pt-10 text-grayt text-xxs md:text-sm">
       <div className="ml-6">
         <aside className="mb-8 ml-2 md:ml-12">
-          <p>
-            2024. University of Santo Tomas. College of Information and
-            Computing Sciences
+          <p className="flex flex-wrap items-center">
+            <FaRegCopyright className="flex items-center mr-1"/>2024. University of Santo Tomas. College of Information and
+            Computing Sciences.
           </p>
         </aside>
         <p className="ml-2 text-bgray text-xxs font-light mb-2 md:text-xs md:ml-12">
