@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 function Companies() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(''); // Added state for search term
 
   const modalRef = useRef(null);
 
@@ -35,17 +36,27 @@ function Companies() {
     }
   }, [isModalOpen]);
 
+  // Filter companies based on search term
+  const filteredCompanies = companies.filter(company => 
+    company.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
       <h1 className="text-xl mb-4">Companies</h1>
 
-      <div className="mb-4 relative z-10">
+      <div className="mb-4 z-10 relative"> 
         <input
           type="text"
           placeholder="Search Company"
           className="w-full border border-black rounded-lg px-4 py-2"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} // Update search term
         />
-        <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer">
+        <span
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer"
+          onClick={() => setSearchTerm('')} // Clear search term
+        >
           X
         </span>
       </div>
@@ -62,7 +73,7 @@ function Companies() {
 
       <hr className="mb-6 border-black" />
 
-      {companies.map((company, index) => (
+      {filteredCompanies.map((company, index) => (
         <div 
           key={index} 
           className="mb-4 p-4 border border-black rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
@@ -75,7 +86,7 @@ function Companies() {
 
       {/* Modal */}
       {isModalOpen && selectedCompany && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4" style={{ zIndex: 9999 }}>
           <div ref={modalRef} className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative">
             <button 
               className="absolute top-4 right-4 text-black text-2xl"
