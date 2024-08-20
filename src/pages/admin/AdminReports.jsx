@@ -298,6 +298,19 @@ function AdminReports() {
           </tbody>
         </table>
       </div>
+
+      <div className="flex justify-center mt-16 space-x-3">
+            <div className="">
+              <button className="btn md:w-64 w-52 bg-blue text-white">
+                Export to PDF
+              </button>
+            </div>
+            <div className="">
+              <button className="btn md:w-64 w-52 bg-green text-white">
+                Export to Excel
+              </button>
+            </div> 
+          </div>
     </div>
   );
 }
