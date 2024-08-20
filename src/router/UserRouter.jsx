@@ -31,6 +31,7 @@ import Register from "../pages/authentication/Register";
 import ForgotPassword from "../pages/authentication/ForgotPassword";
 import ResetPassword from "../pages/authentication/ResetPassword";
 import VerifyAccount from "../pages/authentication/VerifyAccount";
+import DataPrivacy from "../pages/authentication/DataPrivacy";
 
 const router = createBrowserRouter([
   {
@@ -164,6 +165,10 @@ const router = createBrowserRouter([
   {
     path: "/verifyaccount",
     element: <VerifyAccount />,
+  },
+  {
+    path: "/dataprivacy",
+    element: <DataPrivacy />,
   },
 ]);
 
