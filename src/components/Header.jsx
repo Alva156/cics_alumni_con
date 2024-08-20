@@ -18,7 +18,7 @@ const Header = () => {
         <p className="text-black text-3xl font-light ml-0.5 mb-1 md:text-4xl md:ml-2">
           |
         </p>
-        <p className="text-black font-light text-sm md:text-xl  ml-2 mr-2 ">
+        <p className="text-black font-light text-sm md:text-2xl  ml-2 mr-2 header-text">
           Alumni Connect
         </p>
       </div>
