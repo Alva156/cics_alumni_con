@@ -75,8 +75,8 @@ function Companies() {
 
       {/* Modal */}
       {isModalOpen && selectedCompany && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div ref={modalRef} className="bg-white p-12 rounded-lg max-w-5xl w-full relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div ref={modalRef} className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative">
             <button 
               className="absolute top-4 right-4 text-black text-2xl"
               onClick={closeModal}
@@ -85,7 +85,7 @@ function Companies() {
             </button>
             <div className="text-2xl font-medium mb-2">{selectedCompany.name}</div>
             <div className="text-md mb-2">{selectedCompany.address}</div>
-            <img src={selectedCompany.image} alt={selectedCompany.name} className="mb-4 w-full h-64 object-cover rounded" />
+            <img src={selectedCompany.image} alt={selectedCompany.name} className="mb-4 w-full h-48 md:h-64 lg:h-80 object-cover rounded" />
             <div className="text-sm mb-4">{selectedCompany.description}</div>
             <div className="text-sm font-medium mb-2">{selectedCompany.contact}</div>
             <a href={`mailto:company@gmail.com`} className="block text-sm text-blue-600 underline">company@gmail.com</a>
