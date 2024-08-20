@@ -39,7 +39,7 @@ function News() {
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
       <h1 className="text-xl mb-4">News</h1>
 
-      <div className="mb-4 z-10 relative"> 
+      <div className="mb-4 relative"> 
         <input
           type="text"
           placeholder="Search News"
