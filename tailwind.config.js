@@ -12,6 +12,7 @@ export default {
         black: "#000000",
         green: "#056E34",
         blue: "#1458BE",
+        orange: "#E58008",
       },
       // fontFamily: {
       //   primary: ["Roboto", "sans-serif"],
