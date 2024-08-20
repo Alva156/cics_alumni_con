@@ -175,7 +175,7 @@ function AdminReports() {
         <div className="relative mb-6">
         <button
   onClick={() => handleDropdownToggle('programs')}
-  className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
+  className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
 >
             <span className="">Program</span>
             <svg
@@ -218,7 +218,7 @@ function AdminReports() {
         <div className="relative mb-6">
           <button
             onClick={() => handleDropdownToggle('fields')}
-            className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
+            className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
           >
             <span>Fields</span>
             
@@ -263,16 +263,16 @@ function AdminReports() {
       <div className="overflow-x-auto mt-6">
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
-            <tr className='text-xs'>
-              <th className="px-4 py-2 border">First Name</th>
-              <th className="px-4 py-2 border">Last Name</th>
-              <th className="px-4 py-2 border">Birthday</th>
+            <tr className='text-xs font-normal'>
+              <td className="px-4 py-2 border">First Name</td>
+              <td className="px-4 py-2 border">Last Name</td>
+              <td className="px-4 py-2 border">Birthday</td>
               {selectedFields.length === 0 || selectedFields.includes('All Fields')
                 ? Object.keys(fieldToKeyMap).map((field, idx) => (
-                    <th key={idx} className="px-4 py-2 border">{field}</th>
+                    <td key={idx} className="px-4 py-2 border">{field}</td>
                   ))
                 : selectedFields.map((field, idx) => (
-                    <th key={idx} className="px-4 py-2 border">{field}</th>
+                    <td key={idx} className="px-4 py-2 border">{field}</td>
                   ))}
             </tr>
           </thead>
