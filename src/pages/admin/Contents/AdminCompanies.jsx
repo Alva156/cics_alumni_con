@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 function AdminCompanies() {
   const [selectedCompany, setSelectedCompany] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const modalRef = useRef(null);
@@ -31,9 +31,9 @@ function AdminCompanies() {
     }
   ];
 
-  const openModal = (company) => {
+  const openViewModal = (company) => {
     setSelectedCompany(company);
-    setIsModalOpen(true);
+    setIsViewModalOpen(true);
   };
 
   const openEditModal = (company) => {
@@ -42,11 +42,7 @@ function AdminCompanies() {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedCompany(null);
-  };
-
-  const closeEditModal = () => {
+    setIsViewModalOpen(false);
     setIsEditModalOpen(false);
     setSelectedCompany(null);
   };
@@ -58,11 +54,11 @@ function AdminCompanies() {
       }
     };
 
-    if (isModalOpen || isEditModalOpen) {
+    if (isViewModalOpen || isEditModalOpen) {
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [isModalOpen, isEditModalOpen]);
+  }, [isViewModalOpen, isEditModalOpen]);
 
   const filteredCompanies = companies.filter(company => 
     company.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -115,24 +111,25 @@ function AdminCompanies() {
       {filteredCompanies.map((company, index) => (
         <div 
           key={index} 
-          className="mb-4 p-4 border border-black rounded-lg flex justify-between items-center hover:bg-gray-200 transition-colors"
+          className="mb-4 p-4 border border-black rounded-lg flex justify-between items-center hover:bg-gray-200 transition-colors cursor-pointer"
+          onClick={() => openViewModal(company)}
         >
-          <div onClick={() => openModal(company)} className="cursor-pointer">
+          <div>
             <div className="text-md font-medium mb-1">{company.name}</div>
             <div className="text-sm text-black-600">{company.address}</div>
           </div>
           <div className="flex items-center">
             <div 
-              className="w-6 h-6 rounded-full bg-[#BE142E] flex justify-center items-center cursor-pointer mr-2 relative"
-              onClick={() => console.log('Delete action')}
+              className="w-6 h-6 rounded-full bg-[#BE142E] flex justify-center items-center cursor-pointer mr-2 relative group"
+              onClick={(e) => { e.stopPropagation(); console.log('Delete action'); }}
             >
               <span className="hidden group-hover:block absolute bottom-8 bg-gray-700 text-white text-xs rounded px-2 py-1">
                 Delete
               </span>
             </div>
             <div 
-              className="w-6 h-6 rounded-full bg-[#3D3C3C] flex justify-center items-center cursor-pointer relative"
-              onClick={() => openEditModal(company)}
+              className="w-6 h-6 rounded-full bg-[#3D3C3C] flex justify-center items-center cursor-pointer relative group"
+              onClick={(e) => { e.stopPropagation(); openEditModal(company); }}
             >
               <span className="hidden group-hover:block absolute bottom-8 bg-gray-700 text-white text-xs rounded px-2 py-1">
                 Edit
@@ -142,8 +139,8 @@ function AdminCompanies() {
         </div>
       ))}
 
-      {/* Modal */}
-      {isModalOpen && selectedCompany && (
+      {/* View Modal */}
+      {isViewModalOpen && selectedCompany && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4" style={{ zIndex: 9999 }}>
           <div ref={modalRef} className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative">
             <button 
@@ -168,7 +165,7 @@ function AdminCompanies() {
           <div ref={modalRef} className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative">
             <button 
               className="absolute top-4 right-4 text-black text-2xl"
-              onClick={closeEditModal}
+              onClick={closeModal}
             >
               &times;
             </button>
@@ -190,7 +187,7 @@ function AdminCompanies() {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Company Image</label>
+              <label className="block text-sm font-medium mb-1">Company Image URL</label>
               <input
                 type="text"
                 className="w-full border border-black rounded-lg px-4 py-2"
@@ -213,7 +210,7 @@ function AdminCompanies() {
               />
             </div>
             <div className="flex justify-end">
-              <button className="btn md:w-64 w-52 bg-fgray text-white mr-2">
+              <button className="btn md:w-64 w-52 bg-fgray text-white mr-2" onClick={closeModal}>
                 Cancel
               </button>
               <button className="btn md:w-64 w-52 bg-green text-white">
