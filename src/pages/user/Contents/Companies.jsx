@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 function Companies() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // Added state for search term
+  const [searchTerm, setSearchTerm] = useState(''); 
 
   const modalRef = useRef(null);
 
@@ -36,7 +36,6 @@ function Companies() {
     }
   }, [isModalOpen]);
 
-  // Filter companies based on search term
   const filteredCompanies = companies.filter(company => 
     company.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -51,11 +50,11 @@ function Companies() {
           placeholder="Search Company"
           className="w-full border border-black rounded-lg px-4 py-2"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} // Update search term
+          onChange={(e) => setSearchTerm(e.target.value)} 
         />
         <span
           className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer"
-          onClick={() => setSearchTerm('')} // Clear search term
+          onClick={() => setSearchTerm('')}
         >
           X
         </span>
