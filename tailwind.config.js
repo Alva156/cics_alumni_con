@@ -10,6 +10,7 @@ export default {
         white: "#FFFEFE",
         grayt: "#FFFFFF", //gray text of our website
         black: "#000000",
+        green: "#056E34",
       },
       // fontFamily: {
       //   primary: ["Roboto", "sans-serif"],
@@ -20,4 +21,7 @@ export default {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["bumblebee"],
+  },
 };

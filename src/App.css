@@ -5,3 +5,7 @@ body {
   background-color: #f6f6f6;
   min-height: 100vh;
 }
+
+.page-title{
+  @apply text-xl text-black font-light py-4
+}

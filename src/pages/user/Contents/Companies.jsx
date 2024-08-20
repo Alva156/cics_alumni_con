@@ -39,7 +39,7 @@ function Companies() {
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
       <h1 className="text-xl mb-4">Companies</h1>
 
-      <div className="mb-4 relative">
+      <div className="mb-4 relative z-10">
         <input
           type="text"
           placeholder="Search Company"
