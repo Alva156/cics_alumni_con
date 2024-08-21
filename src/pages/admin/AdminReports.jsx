@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function AdminReports() {
-  // Define the available fields for the table and their corresponding data keys
   const fieldToKeyMap = {
     'Profession': 'profession',
     'College Program': 'collegeProgram',
@@ -26,30 +25,27 @@ function AdminReports() {
   const availableFields = Object.keys(fieldToKeyMap);
   const availablePrograms = ['Computer Science', 'Information Systems', 'Information Technology'];
 
-  // State to store selected programs and fields
   const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [selectedFields, setSelectedFields] = useState([]);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [dropdownType, setDropdownType] = useState('');
+  const [openDropdown, setOpenDropdown] = useState('');
 
   const dropdownRef = useRef(null);
 
-  // Handle clicks outside of dropdown to close it
-  useState(() => {
+  useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
+        setOpenDropdown('');
       }
     }
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
-  const handleDropdownToggle = (type) => {
-    setDropdownType(type);
-    setDropdownOpen(prev => (prev && dropdownType === type) ? false : true);
+  const toggleDropdown = (type) => {
+    setOpenDropdown((prev) => (prev === type ? '' : type));
   };
 
   const handleProgramSelection = (event) => {
@@ -86,7 +82,6 @@ function AdminReports() {
     });
   };
 
-  // Sample data for the table
   const data = [
     {
       firstName: 'John',
@@ -159,8 +154,7 @@ function AdminReports() {
     },
   ];
 
-  // Filter data based on selected programs
-  const filteredData = data.filter(row => 
+  const filteredData = data.filter(row =>
     selectedPrograms.includes('All Programs') || selectedPrograms.includes(row.collegeProgram)
   );
 
@@ -168,18 +162,16 @@ function AdminReports() {
     <div className='text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12'>
       <h1 className="text-xl mb-4">Reports</h1>
 
-      {/* FILTERS */}
       <div className="text-sm mb-4">Filters:</div>
       <div className="sm:flex block sm:space-x-4">
-        {/* Programs Dropdown */}
         <div className="relative mb-6">
-        <button
-  onClick={() => handleDropdownToggle('programs')}
-  className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
->
-            <span className="">Program</span>
+          <button
+            onClick={() => toggleDropdown('programs')}
+            className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-64 w-full relative bg-transparent"
+          >
+            <span>Program</span>
             <svg
-              className="w-2.5 h-2.5 ms-3 absolute right-4"
+              className={`w-2.5 h-2.5 ms-3 absolute right-4 transition-transform duration-300 ease-in-out ${openDropdown === 'programs' ? 'rotate-180' : ''}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -194,8 +186,8 @@ function AdminReports() {
               />
             </svg>
           </button>
-          {dropdownOpen && dropdownType === 'programs' && (
-            <div ref={dropdownRef} className="z-10 absolute sm:w-96 w-full bg-white divide-y divide-gray-100 rounded-lg shadow mt-2">
+          {openDropdown === 'programs' && (
+            <div ref={dropdownRef} className="z-10 absolute sm:w-64 w-full bg-white divide-y divide-gray-100 rounded-lg shadow mt-2">
               <ul className="p-3 space-y-3 text-sm text-gray-700">
                 {['All Programs', ...availablePrograms].map((program, idx) => (
                   <li key={idx} className="flex items-center">
@@ -206,7 +198,7 @@ function AdminReports() {
                       onChange={handleProgramSelection}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
                     />
-                    <label className="ms-2 text-sm font-medium">{program}</label>
+                    <label className="ms-2 sm:text-xs font-medium">{program}</label>
                   </li>
                 ))}
               </ul>
@@ -214,16 +206,14 @@ function AdminReports() {
           )}
         </div>
 
-        {/* Fields Dropdown */}
         <div className="relative mb-6">
           <button
-            onClick={() => handleDropdownToggle('fields')}
-            className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-96 w-full relative bg-transparent"
+            onClick={() => toggleDropdown('fields')}
+            className="border border-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-light rounded-lg text-sm px-5 py-2.5 flex justify-between items-center sm:w-80 w-full relative bg-transparent"
           >
             <span>Fields</span>
-            
             <svg
-              className="w-2.5 h-2.5 ms-3"
+              className={`w-2.5 h-2.5 ms-3 absolute right-4 transition-transform duration-300 ease-in-out ${openDropdown === 'fields' ? 'rotate-180' : ''}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -238,8 +228,8 @@ function AdminReports() {
               />
             </svg>
           </button>
-          {dropdownOpen && dropdownType === 'fields' && (
-            <div ref={dropdownRef} className="z-10 absolute sm:w-96 w-full bg-white divide-y divide-gray-100 rounded-lg shadow mt-2">
+          {openDropdown === 'fields' && (
+            <div ref={dropdownRef} className="z-10 h-64 overflow-y-scroll absolute sm:w-80 w-full bg-white divide-y divide-gray-100 rounded-lg shadow mt-2">
               <ul className="p-3 space-y-3 text-sm text-gray-700">
                 {['All Fields', ...availableFields].map((field, idx) => (
                   <li key={idx} className="flex items-center">
@@ -250,7 +240,7 @@ function AdminReports() {
                       onChange={handleFieldSelection}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
                     />
-                    <label className="ms-2 text-sm font-medium">{field}</label>
+                    <label className="ms-2 sm:text-xs font-medium">{field}</label>
                   </li>
                 ))}
               </ul>
@@ -259,40 +249,41 @@ function AdminReports() {
         </div>
       </div>
 
-      {/* TABLE */}
       <div className="overflow-x-auto mt-6">
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
-            <tr className='text-xs font-normal'>
+            <tr className='text-xs font-normal text-center'>
+            <td className="px-4 py-2 border"></td>
               <td className="px-4 py-2 border">First Name</td>
               <td className="px-4 py-2 border">Last Name</td>
               <td className="px-4 py-2 border">Birthday</td>
               {selectedFields.length === 0 || selectedFields.includes('All Fields')
                 ? Object.keys(fieldToKeyMap).map((field, idx) => (
-                    <td key={idx} className="px-4 py-2 border">{field}</td>
-                  ))
+                  <td key={idx} className="px-4 py-2 border">{field}</td>
+                ))
                 : selectedFields.map((field, idx) => (
-                    <td key={idx} className="px-4 py-2 border">{field}</td>
-                  ))}
+                  <td key={idx} className="px-4 py-2 border">{field}</td>
+                ))}
             </tr>
           </thead>
           <tbody className='text-xs'>
             {filteredData.map((row, rowIndex) => (
               <tr key={rowIndex} className="text-center">
+                <td className="px-4 py-2 border">{rowIndex + 1}</td>
                 <td className="px-4 py-2 border">{row.firstName}</td>
                 <td className="px-4 py-2 border">{row.lastName}</td>
                 <td className="px-4 py-2 border">{row.birthday}</td>
                 {selectedFields.length === 0 || selectedFields.includes('All Fields')
                   ? Object.keys(fieldToKeyMap).map((field, fieldIndex) => (
-                      <td key={fieldIndex} className="px-4 py-2 border">
-                        {row[fieldToKeyMap[field]] || 'N/A'}
-                      </td>
-                    ))
+                    <td key={fieldIndex} className="px-4 py-2 border">
+                      {row[fieldToKeyMap[field]] || 'N/A'}
+                    </td>
+                  ))
                   : selectedFields.map((field, fieldIndex) => (
-                      <td key={fieldIndex} className="px-4 py-2 border">
-                        {row[fieldToKeyMap[field]] || 'N/A'}
-                      </td>
-                    ))}
+                    <td key={fieldIndex} className="px-4 py-2 border">
+                      {row[fieldToKeyMap[field]] || 'N/A'}
+                    </td>
+                  ))}
               </tr>
             ))}
           </tbody>
@@ -300,17 +291,17 @@ function AdminReports() {
       </div>
 
       <div className="flex justify-center mt-16 space-x-3">
-            <div className="">
-              <button className="btn md:w-64 w-52 bg-blue text-white">
-                Export to PDF
-              </button>
-            </div>
-            <div className="">
-              <button className="btn md:w-64 w-52 bg-green text-white">
-                Export to Excel
-              </button>
-            </div> 
-          </div>
+        <div className="">
+          <button className="btn md:w-64 w-52 bg-blue text-white">
+            Export to PDF
+          </button>
+        </div>
+        <div className="">
+          <button className="btn md:w-64 w-52 bg-green text-white">
+            Export to Excel
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
