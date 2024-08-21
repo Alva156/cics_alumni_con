@@ -4,14 +4,14 @@ import cicslogo from "../assets/cicslogo.png";
 
 const Header = () => {
   return (
-    <header className="bg-hgray max-w-screen-2xl container mx-auto md:px-12 py-3 flex items-center justify-between px-2 ">
+    <header className="bg-hgray w-full mx-auto md:px-12 py-3 flex items-center justify-between px-2">
       <div className="flex items-center">
         <img src={ustlogo} alt="UST Logo" className="h-11  mr-6 ml-4 md:h-16" />
         <div className="col">
           <p className="text-black font-light italic text-end text-xxs mt-1 md:text-xs  ">
             University of Santo Tomas
           </p>
-          <p className="text-black font-bold italic text-end text-xxs mb-2 md:text-xs  ">
+          <p className="text-black font-bold italic text-end text-[0.4rem] mb-2 md:text-xs  ">
             College of Information and Computing Sciences
           </p>
         </div>
