@@ -13,6 +13,7 @@ export default {
         green: "#056E34",
         blue: "#1458BE",
         orange: "#E58008",
+        red: "#BE142E",
       },
       letterSpacing: {
         "extra-wide": "0.5em",
