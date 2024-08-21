@@ -49,17 +49,32 @@ function AdminSurveyTool() {
   ]);
 
   const [selectedSurvey, setSelectedSurvey] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const modalRef = useRef(null);
 
-  const openModal = (survey) => {
+  const openViewModal = (survey) => {
     setSelectedSurvey(survey);
-    setIsModalOpen(true);
+    setIsViewModalOpen(true);
+  };
+
+  const openEditModal = (survey) => {
+    setSelectedSurvey(survey);
+    setIsEditModalOpen(true);
+  };
+
+  const openAddModal = () => {
+    setSelectedSurvey(null);
+    setIsAddModalOpen(true);
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsViewModalOpen(false);
+    setIsEditModalOpen(false);
+    setIsAddModalOpen(false);
     setSelectedSurvey(null);
   };
 
@@ -70,12 +85,12 @@ function AdminSurveyTool() {
       }
     };
 
-    if (isModalOpen) {
+    if (isViewModalOpen || isEditModalOpen || isAddModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       return () =>
         document.removeEventListener("mousedown", handleClickOutside);
     }
-  }, [isModalOpen]);
+  }, [isViewModalOpen, isEditModalOpen, isAddModalOpen]);
 
   const handleDeleteSurvey = (id) => {
     setSurveys((prevSurveys) => prevSurveys.filter((survey) => survey.id !== id));
@@ -138,8 +153,18 @@ function AdminSurveyTool() {
   };
 
   // Filter surveys based on whether they are answered or not
-  const unansweredSurveys = surveys.filter((survey) => !survey.answered);
-  const answeredSurveys = surveys.filter((survey) => survey.answered);
+  const unansweredSurveys = surveys
+    .filter(survey => !survey.answered)
+    .filter(survey =>
+      survey.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+  // Filter answered surveys by search term
+  const answeredSurveys = surveys
+    .filter(survey => survey.answered)
+    .filter(survey =>
+      survey.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   return (
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
@@ -148,10 +173,13 @@ function AdminSurveyTool() {
       <div className="mb-4 relative">
         <input
           type="text"
-          placeholder="Search Survey"
+          placeholder="Search Company"
           className="w-full border border-black rounded-lg px-4 py-2"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer">
+        <span className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 cursor-pointer"
+          onClick={() => setSearchTerm('')}>
           X
         </span>
       </div>
@@ -168,6 +196,7 @@ function AdminSurveyTool() {
         <div className="text-lg">Drafts</div>
         <button
           className="btn btn-sm w-36 bg-green text-white"
+          onClick={openAddModal}
         >
           +
         </button>
@@ -175,11 +204,11 @@ function AdminSurveyTool() {
 
       <hr className="mb-6 border-black" />
 
-      {unansweredSurveys.map((survey) => (
+      {unansweredSurveys.map((survey, index) => (
         <div
-          key={survey.id}
+          key={index}
           className="mb-4 p-4 border border-black rounded-lg flex justify-between cursor-pointer hover:bg-gray-200 transition-colors"
-          onClick={() => openModal(survey)}
+          onClick={() => openViewModal(survey)}
         >
           <div>
             <div className="text-md font-medium mb-1">{survey.name}</div>
@@ -196,7 +225,7 @@ function AdminSurveyTool() {
             </div>
             <div
               className="w-4 h-4 rounded-full bg-[#3D3C3C] flex justify-center items-center cursor-pointer mr-2 relative group"
-              onClick={(e) => { e.stopPropagation(); console.log('Edit action'); }}
+              onClick={(e) => { e.stopPropagation(); openEditModal(survey); }}
             >
               <span className="hidden group-hover:block absolute bottom-8 bg-gray-700 text-white text-xs rounded px-2 py-1">
                 Edit
@@ -257,8 +286,8 @@ function AdminSurveyTool() {
         </div>
       ))}
 
-      {/* Modal */}
-      {isModalOpen && selectedSurvey && (
+      {/* VIEW MODAL */}
+      {isViewModalOpen && selectedSurvey && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
           <div
             ref={modalRef}
@@ -329,6 +358,50 @@ function AdminSurveyTool() {
           </div>
         </div>
       )}
+
+      {/* EDIT MODAL */}
+      
+      {isEditModalOpen && selectedSurvey &&(
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div
+            ref={modalRef}
+            className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative"
+          >
+            <button
+              className="absolute top-4 right-4 text-black text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <div className="text-2xl font-medium mb-2">
+              {selectedSurvey ? selectedSurvey.name : "New Survey"}
+            </div>
+            {/* Rest of the modal content */}
+          </div>
+        </div>
+      )}
+
+      {/* ADD MODAL */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div
+            ref={modalRef}
+            className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative"
+          >
+            <button
+              className="absolute top-4 right-4 text-black text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <div className="text-2xl font-medium mb-2">
+              {selectedSurvey ? selectedSurvey.name : "New Survey"}
+            </div>
+            {/* Rest of the modal content */}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
