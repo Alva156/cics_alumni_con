@@ -12,41 +12,42 @@ function Alumni() {
       name: "Andrei Cimoune Alvarico",
       profession: "Top 1 Programmer PH",
       image: "",
-      collegeprogram: "",
-      specialization: "",
-      yearstarted: "",
-      yeargraduated: "",
-      joblanding: "",
-      employmentstatus: "",
-      workindustry: "",
-      currentprofession: "",
-      maritalstatus: "",
-      salaryrange: "",
-      employmentplace: "",
-      secondaryeducation: "",
-      tertiaryeducation: "",
-      career: "",
-      careerposition: "",
-      linkedin: "",
-      facebook: "",
-      instagram: "",
-      email: "",
-      mobilenumber: "",
+      collegeprogram: "Information Technology",
+      specialization: "Web and Mobile App Development",
+      yearstarted: "2021",
+      yeargraduated: "2025",
+      joblanding: "2",
+      employmentstatus: "Employed",
+      workindustry: "Telecommunications",
+      currentprofession: "Yes",
+      maritalstatus: "Single",
+      salaryrange: "500,000 - 999,000 PHP",
+      employmentplace: "Local",
+      secondaryeducation: "Far Eastern University - Diliman",
+      secondaryeducationyear: "2019-2021",
+      tertiaryeducation: "University of Santo Tomas ",
+      tertiaryeducationdegree: "Bachelor of Science in Information Technology",
+      tertiaryeducationyear: "2021-2025",
+      career: "Google LLC",
+      careerposition: "Software Engineer",
+      careeryear: "2025-2030",
+      linkedin: "denval@linkedin",
+      facebook: "denval@facebook",
+      instagram: "denval@insta",
+      email: "denval@gmail",
+      mobilenumber: "09223334444",
     },
     {
       name: "Alessandra Claire Cruz",
       profession: "Software Developer ",
-      image: "",
     },
     {
       name: "James Lorenz Santos",
       profession: "Software Engineering Specialist",
-      image: "",
     },
     {
       name: "Denise Anne Valdivieso",
       profession: "Multi-awarded Software Engineer",
-      image: "",
     },
   ];
 
@@ -149,9 +150,129 @@ function Alumni() {
             </button>
 
             <div>
-              <h1 className="text-xl mb-4">Primary Information</h1>
-              <p>Name</p>
-              <p>{selectedAlumni.name}</p>
+              <div className="flex md:flex-row justify-between">
+                <div>
+                  <h1 className="text-xl mb-4">Primary Information</h1>
+                  <p className="text-xs mb-1/2">Name</p>
+                  <p className="text-s mb-2 font-bold">{selectedAlumni.name}</p>
+                  <p className="text-xs mb-1/2">Profession</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.profession}
+                  </p>
+                  <p className="text-xs mb-1/2">College Program</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.collegeprogram}
+                  </p>
+                  <p className="text-xs mb-1/2">Specialization</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.specialization}
+                  </p>
+                  <p className="text-xs mb-1/2">
+                    Year Started on College Program
+                  </p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.yearstarted}
+                  </p>
+                  <p className="text-xs mb-1/2">
+                    Year Graduated on College Program
+                  </p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.yeargraduated}
+                  </p>
+                  <p className="text-xs mb-1/2">
+                    Time it took to land a job after graduation (Months){" "}
+                  </p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.joblanding}
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-xl mb-4">Contact Information</h1>
+                  <p className="text-xs mb-1/2">LinkedIn</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.linkedin}
+                  </p>
+                  <p className="text-xs mb-1/2">Facebook</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.facebook}
+                  </p>
+                  <p className="text-xs mb-1/2">Instagram</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.instagram}
+                  </p>
+                  <p className="text-xs mb-1/2">Email Address</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.email}
+                  </p>
+                  <p className="text-xs mb-1/2">Mobile Number</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.mobilenumber}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex md:flex-row justify-between">
+                <div>
+                  <h1 className="text-xl mb-4 mt-6">Secondary Information</h1>
+                  <p className="text-xs mb-1/2">Employment Status</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.employmentstatus}
+                  </p>
+                  <p className="text-xs mb-1/2">Work Industry</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.workindustry}
+                  </p>
+                  <p className="text-xs mb-1/2">
+                    Is current profession in line with college degree
+                  </p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.currentprofession}
+                  </p>
+                  <p className="text-xs mb-1/2">Marital Status</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.maritalstatus}
+                  </p>
+                  <p className="text-xs mb-1/2">Salary range (PHP)</p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.salaryrange}
+                  </p>
+                  <p className="text-xs mb-1/2">
+                    Place of employment (Local or International)
+                  </p>
+                  <p className="text-s mb-2 font-bold">
+                    {selectedAlumni.employmentplace}
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-xl mb-4 mt-6">Attachments</h1>
+                </div>
+              </div>
+
+              <h1 className="text-xl mb-4 mt-6">Educational Background</h1>
+              <p className="text-xs mb-1">Secondary Education</p>
+              <p className="text-s font-bold">
+                {selectedAlumni.secondaryeducation}
+              </p>
+              <p className="text-xs mb-2">
+                {selectedAlumni.secondaryeducationyear}
+              </p>
+              <p className="text-xs mb-1 mt-3">Tertiary Education</p>
+              <p className="text-s font-bold">
+                {selectedAlumni.tertiaryeducation}
+              </p>
+              <p className="text-xs mb-1 italic">
+                {selectedAlumni.tertiaryeducationdegree}
+              </p>
+              <p className="text-xs mb-2">
+                {selectedAlumni.tertiaryeducationyear}
+              </p>
+
+              <h1 className="text-xl mb-4 mt-6">Career Background</h1>
+              <p className="text-s font-bold">{selectedAlumni.career}</p>
+              <p className="text-xs mb-1 italic">
+                {selectedAlumni.careerposition}
+              </p>
+              <p className="text-xs mb-2">{selectedAlumni.careeryear}</p>
             </div>
           </div>
         </div>
