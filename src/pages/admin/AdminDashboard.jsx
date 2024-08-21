@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,102 +18,78 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const getFontSize = () => {
-  if (window.innerWidth < 640) {
-    // Small screens
-    return 7;
-  } else if (window.innerWidth < 768) {
-    // Medium screens
-    return 9;
-  } else if (window.innerWidth < 1024) {
-    // Large screens
-    return 13;
-  } else {
-    // Extra large screens
-    return 13;
-  }
-};
-const options1 = {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    x: {
-      ticks: {
-        color: "#000000",
-        font: {
-          weight: "bold",
-          size: getFontSize(),
-        },
-      },
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      beginAtZero: true,
-      ticks: {
-        color: "#000000",
-        font: {
-          weight: "bold",
-          size: getFontSize(),
-        },
-        stepSize: 100,
-      },
-    },
-  },
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-};
-const options2 = {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    x: {
-      ticks: {
-        color: "#000000",
-        font: {
-          weight: "bold",
-          size: getFontSize(),
-        },
-      },
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      beginAtZero: true,
-      ticks: {
-        color: "#000000",
-        font: {
-          weight: "bold",
-          size: getFontSize(),
-        },
-        stepSize: 1,
-      },
-    },
-  },
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-};
 
-function AdminDashboard() {
+const AdminDashboard = () => {
+  const [fontSize, setFontSize] = useState(getFontSize());
+  const chartRefs = useRef([]);
+
+  // Function to get font size based on window width
+  function getFontSize() {
+    if (window.innerWidth < 640) {
+      // Small screens
+      return 7;
+    } else if (window.innerWidth < 768) {
+      // Medium screens
+      return 9;
+    } else if (window.innerWidth < 1024) {
+      // Large screens
+      return 13;
+    } else {
+      // Extra large screens
+      return 13;
+    }
+  }
+
+  // Effect to update font size on window resize
   useEffect(() => {
     const handleResize = () => {
-      myChart.update();
+      setFontSize(getFontSize());
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Chart options with dynamic font size
+  const createOptions = (stepSize) => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          color: "#000000",
+          font: {
+            weight: "bold",
+            size: fontSize,
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: "#000000",
+          font: {
+            weight: "bold",
+            size: fontSize,
+          },
+          stepSize,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  });
+
+  const options1 = createOptions(100);
+  const options2 = createOptions(2);
 
   const data1 = {
     labels: ["CS", "IS", "IT"],
@@ -139,6 +114,7 @@ function AdminDashboard() {
       },
     ],
   };
+
   const data3 = {
     labels: ["2016", "2017", "2018", "2019", "2020"],
     datasets: [
@@ -150,6 +126,7 @@ function AdminDashboard() {
       },
     ],
   };
+
   const data4 = {
     labels: ["2020", "2021", "2022", "2023", "2024"],
     datasets: [
@@ -161,6 +138,7 @@ function AdminDashboard() {
       },
     ],
   };
+
   const data5 = {
     labels: ["Employed", "Unemployed", "Retired", "Underemployed"],
     datasets: [
@@ -172,6 +150,7 @@ function AdminDashboard() {
       },
     ],
   };
+
   const data6 = {
     labels: [
       "IT",
@@ -189,6 +168,7 @@ function AdminDashboard() {
       },
     ],
   };
+
   const data7 = {
     labels: ["1 month", "2 months", "3 months", "4 months", "5 months"],
     datasets: [
@@ -204,6 +184,7 @@ function AdminDashboard() {
   return (
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
       <h1 className="text-xl mb-4">Dashboard</h1>
+      {/* Dashboard Cards */}
       <div className="mb-4 p-4 border border-black rounded-lg cursor-pointer">
         <div>
           <div className="text-sm text-black-600">Number of Users</div>
@@ -218,6 +199,7 @@ function AdminDashboard() {
           <div className="text-lg font-medium mb-1 mt-2">9990</div>
         </div>
       </div>
+      {/* Charts */}
       <div className="mb-4 p-6 border border-black rounded-lg cursor-pointer">
         <div>
           <div className="text-sm text-black-600">Academic Program</div>
@@ -278,6 +260,6 @@ function AdminDashboard() {
       </div>
     </div>
   );
-}
+};
 
 export default AdminDashboard;
