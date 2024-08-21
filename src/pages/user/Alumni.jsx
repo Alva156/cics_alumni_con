@@ -235,8 +235,8 @@ function Alumni() {
                   />
                 </div>
               )}
-              <div className="flex md:flex-row justify-between">
-                <div className="w-1/2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 justify-between">
+                <div className="order-1 sm:order-1">
                   <h1 className="text-xl mb-4">Primary Information</h1>
                   <p className="text-xs mb-1/2">Name</p>
                   <p className="text-s mb-2 font-bold">{selectedAlumni.name}</p>
@@ -271,7 +271,7 @@ function Alumni() {
                     {selectedAlumni.joblanding}
                   </p>
                 </div>
-                <div className="w-1/2">
+                <div className="order-3 sm:order-2">
                   <h1 className="text-xl mb-4">Contact Information</h1>
                   <p className="text-xs mb-1/2">LinkedIn</p>
                   <p className="text-s mb-2 font-bold">
@@ -294,10 +294,7 @@ function Alumni() {
                     {selectedAlumni.mobilenumber}
                   </p>
                 </div>
-              </div>
-
-              <div className="flex md:flex-row justify-between">
-                <div className="w-1/2">
+                <div className="order-2 sm:order-3">
                   <h1 className="text-xl mb-4 mt-6">Secondary Information</h1>
                   <p className="text-xs mb-1/2">Employment Status</p>
                   <p className="text-s mb-2 font-bold">
@@ -328,10 +325,12 @@ function Alumni() {
                     {selectedAlumni.employmentplace}
                   </p>
                 </div>
-                <div className="w-1/2">
+                <div className="order-4 sm:order-4">
                   <h1 className="text-xl mb-4 mt-6">Attachments</h1>
                 </div>
               </div>
+
+              <div className="block md:flex-row md:flex justify-between"></div>
 
               <h1 className="text-xl mb-4 mt-6">Educational Background</h1>
               <p className="text-xs mb-1">Secondary Education</p>
