@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import sampleidpic from "../../assets/sampleidpic.jpg";
 
 function Alumni() {
   const [selectedAlumni, setSelectedAlumni] = useState(null);
@@ -11,7 +12,7 @@ function Alumni() {
     {
       name: "Andrei Cimoune Alvarico",
       profession: "Top 1 Programmer PH",
-      image: "",
+      image: sampleidpic,
       collegeprogram: "Information Technology",
       specialization: "Web and Mobile App Development",
       yearstarted: "2021",
@@ -25,7 +26,94 @@ function Alumni() {
       employmentplace: "Local",
       secondaryeducation: "Far Eastern University - Diliman",
       secondaryeducationyear: "2019-2021",
-      tertiaryeducation: "University of Santo Tomas ",
+      tertiaryeducation: "University of Santo Tomas",
+      tertiaryeducationdegree: "Bachelor of Science in Information Technology",
+      tertiaryeducationyear: "2021-2025",
+      career: "Google LLC",
+      careerposition: "Software Engineer",
+      careeryear: "2025-2030",
+      linkedin: "andrei@linkedin",
+      facebook: "andrei@facebook",
+      instagram: "andrei@insta",
+      email: "andrei@gmail",
+      mobilenumber: "09223334444",
+    },
+    {
+      name: "Alessandra Claire Cruz",
+      profession: "Software Developer",
+      image: sampleidpic,
+      collegeprogram: "Information Technology",
+      specialization: "Web and Mobile App Development",
+      yearstarted: "2021",
+      yeargraduated: "2025",
+      joblanding: "2",
+      employmentstatus: "Employed",
+      workindustry: "Telecommunications",
+      currentprofession: "Yes",
+      maritalstatus: "Single",
+      salaryrange: "500,000 - 999,000 PHP",
+      employmentplace: "Local",
+      secondaryeducation: "Far Eastern University - Diliman",
+      secondaryeducationyear: "2019-2021",
+      tertiaryeducation: "University of Santo Tomas",
+      tertiaryeducationdegree: "Bachelor of Science in Information Technology",
+      tertiaryeducationyear: "2021-2025",
+      career: "Google LLC",
+      careerposition: "Software Engineer",
+      careeryear: "2025-2030",
+      linkedin: "claire@linkedin",
+      facebook: "claire@facebook",
+      instagram: "claire@insta",
+      email: "claire@gmail",
+      mobilenumber: "09223334444",
+    },
+    {
+      name: "James Lorenz Santos",
+      profession: "Software Engineering Specialist",
+      image: sampleidpic,
+      collegeprogram: "Information Technology",
+      specialization: "Web and Mobile App Development",
+      yearstarted: "2021",
+      yeargraduated: "2025",
+      joblanding: "2",
+      employmentstatus: "Employed",
+      workindustry: "Telecommunications",
+      currentprofession: "Yes",
+      maritalstatus: "Single",
+      salaryrange: "500,000 - 999,000 PHP",
+      employmentplace: "Local",
+      secondaryeducation: "Far Eastern University - Diliman",
+      secondaryeducationyear: "2019-2021",
+      tertiaryeducation: "University of Santo Tomas",
+      tertiaryeducationdegree: "Bachelor of Science in Information Technology",
+      tertiaryeducationyear: "2021-2025",
+      career: "Google LLC",
+      careerposition: "Software Engineer",
+      careeryear: "2025-2030",
+      linkedin: "james@linkedin",
+      facebook: "james@facebook",
+      instagram: "james@insta",
+      email: "james@gmail",
+      mobilenumber: "09223334444",
+    },
+    {
+      name: "Denise Anne Valdivieso",
+      profession: "Multi-awarded Software Engineer",
+      image: sampleidpic,
+      collegeprogram: "Information Technology",
+      specialization: "Web and Mobile App Development",
+      yearstarted: "2021",
+      yeargraduated: "2025",
+      joblanding: "2",
+      employmentstatus: "Employed",
+      workindustry: "Telecommunications",
+      currentprofession: "Yes",
+      maritalstatus: "Single",
+      salaryrange: "500,000 - 999,000 PHP",
+      employmentplace: "Local",
+      secondaryeducation: "Far Eastern University - Diliman",
+      secondaryeducationyear: "2019-2021",
+      tertiaryeducation: "University of Santo Tomas",
       tertiaryeducationdegree: "Bachelor of Science in Information Technology",
       tertiaryeducationyear: "2021-2025",
       career: "Google LLC",
@@ -36,18 +124,6 @@ function Alumni() {
       instagram: "denval@insta",
       email: "denval@gmail",
       mobilenumber: "09223334444",
-    },
-    {
-      name: "Alessandra Claire Cruz",
-      profession: "Software Developer ",
-    },
-    {
-      name: "James Lorenz Santos",
-      profession: "Software Engineering Specialist",
-    },
-    {
-      name: "Denise Anne Valdivieso",
-      profession: "Multi-awarded Software Engineer",
     },
   ];
 
@@ -150,6 +226,15 @@ function Alumni() {
             </button>
 
             <div className="">
+              {selectedAlumni.image && (
+                <div className="mb-4">
+                  <img
+                    src={selectedAlumni.image}
+                    alt="Alumni"
+                    className="w-32 h-32"
+                  />
+                </div>
+              )}
               <div className="flex md:flex-row justify-between">
                 <div className="w-1/2">
                   <h1 className="text-xl mb-4">Primary Information</h1>
@@ -180,7 +265,7 @@ function Alumni() {
                     {selectedAlumni.yeargraduated}
                   </p>
                   <p className="text-xs mb-1/2">
-                    Time it took to land a job after graduation (Months){" "}
+                    Time it took to land a job after graduation (Months)
                   </p>
                   <p className="text-s mb-2 font-bold">
                     {selectedAlumni.joblanding}
