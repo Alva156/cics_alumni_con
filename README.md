@@ -15,6 +15,7 @@ Currently, two official plugins are available:
 4. npm install dayjs
 5. npm i flatpickr --save
 6. npm install react-select
+7. npm i --save @fortawesome/fontawesome-svg-core
 
 
 
