@@ -212,7 +212,7 @@ function Alumni() {
               </div>
 
               <div className="flex md:flex-row justify-between">
-                <div>
+                <div className="w-1/2">
                   <h1 className="text-xl mb-4 mt-6">Secondary Information</h1>
                   <p className="text-xs mb-1/2">Employment Status</p>
                   <p className="text-s mb-2 font-bold">
@@ -243,7 +243,7 @@ function Alumni() {
                     {selectedAlumni.employmentplace}
                   </p>
                 </div>
-                <div>
+                <div className="w-1/2">
                   <h1 className="text-xl mb-4 mt-6">Attachments</h1>
                 </div>
               </div>
