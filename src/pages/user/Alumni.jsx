@@ -149,9 +149,9 @@ function Alumni() {
               &times;
             </button>
 
-            <div>
+            <div className="">
               <div className="flex md:flex-row justify-between">
-                <div>
+                <div className="w-1/2">
                   <h1 className="text-xl mb-4">Primary Information</h1>
                   <p className="text-xs mb-1/2">Name</p>
                   <p className="text-s mb-2 font-bold">{selectedAlumni.name}</p>
@@ -186,7 +186,7 @@ function Alumni() {
                     {selectedAlumni.joblanding}
                   </p>
                 </div>
-                <div>
+                <div className="w-1/2">
                   <h1 className="text-xl mb-4">Contact Information</h1>
                   <p className="text-xs mb-1/2">LinkedIn</p>
                   <p className="text-s mb-2 font-bold">
