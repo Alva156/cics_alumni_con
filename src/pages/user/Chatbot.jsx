@@ -207,7 +207,7 @@ function Chatbot() {
           <div className="flex flex-col space-y-4">
             <div className="flex justify-center mt-4">
               <button
-                className="btn bg-green-500 text-white py-2 px-4 rounded-lg"
+                className="btn bg-green text-white py-2 px-6 rounded-lg"
                 onClick={handleAskAgain}
               >
                 Ask Again

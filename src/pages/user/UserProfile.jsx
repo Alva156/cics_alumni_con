@@ -239,7 +239,12 @@ function UserProfile () {
             </div>
 
             <div className="py-1">
-              <label className="pt-4 pb-2 text-sm">Year Started - Year Ended</label>
+              <label className="pt-4 pb-2 text-sm">Year Started</label>
+              <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
+            </div>
+
+            <div className="py-1">
+              <label className="pt-4 pb-2 text-sm">Year Ended</label>
               <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
             </div>
           </div>
@@ -268,7 +273,12 @@ function UserProfile () {
             </div>
 
             <div className="py-1">
-              <label className="pt-4 pb-2 text-sm">Year Started - Year Ended</label>
+              <label className="pt-4 pb-2 text-sm">Year Started</label>
+              <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
+            </div>
+
+            <div className="py-1">
+              <label className="pt-4 pb-2 text-sm">Year Ended</label>
               <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
             </div>
           </div>
@@ -297,7 +307,12 @@ function UserProfile () {
             </div>
 
             <div className="py-1">
-              <label className="pt-4 pb-2 text-sm">Year Started - Year Ended</label>
+              <label className="pt-4 pb-2 text-sm">Year Started</label>
+              <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
+            </div>
+
+            <div className="py-1">
+              <label className="pt-4 pb-2 text-sm">Year Ended</label>
               <input type="date" placeholder="Type here" className="input input-sm input-bordered w-full h-10" />
             </div>
           </div>
