@@ -5,6 +5,7 @@ function AdminCompanies() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false); 
   const [searchTerm, setSearchTerm] = useState('');
   const modalRef = useRef(null);
 
@@ -42,9 +43,15 @@ function AdminCompanies() {
     setIsEditModalOpen(true);
   };
 
+  const openAddModal = () => { 
+    setSelectedCompany(null);
+    setIsAddModalOpen(true);
+  };
+
   const closeModal = () => {
     setIsViewModalOpen(false);
     setIsEditModalOpen(false);
+    setIsAddModalOpen(false); 
     setSelectedCompany(null);
   };
 
@@ -55,19 +62,15 @@ function AdminCompanies() {
       }
     };
 
-    if (isViewModalOpen || isEditModalOpen) {
+    if (isViewModalOpen || isEditModalOpen || isAddModalOpen) {
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [isViewModalOpen, isEditModalOpen]);
+  }, [isViewModalOpen, isEditModalOpen, isAddModalOpen]);
 
   const filteredCompanies = companies.filter(company => 
     company.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const addCompanySection = () => {
-    console.log("Add company section clicked");
-  };
 
   return (
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
@@ -101,7 +104,7 @@ function AdminCompanies() {
         <div className="text-lg">My Listed Companies</div>
         <button
           className="btn btn-sm w-36 bg-green text-white relative"
-          onClick={addCompanySection}
+          onClick={openAddModal} 
         >
           +
         </button>
@@ -227,6 +230,79 @@ function AdminCompanies() {
                 closeModal();
               }}>
                 Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Modal */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4" style={{ zIndex: 9999 }}>
+          <div ref={modalRef} className="bg-white p-6 md:p-8 lg:p-12 rounded-lg max-w-full md:max-w-3xl lg:max-w-4xl w-full h-auto overflow-y-auto max-h-full relative">
+            <button 
+              className="absolute top-4 right-4 text-black text-2xl"
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <div className="text-xl mb-3">Add Company</div>
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Company Name</label>
+              <input
+                type="text"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
+                placeholder="Enter company name"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Company Address</label>
+              <input
+                type="text"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
+                placeholder="Enter company address"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Company Image</label>
+              <div className="relative w-full border border-black bg-gray-100 rounded-lg px-4 py-2 text-sm">
+                <input
+                  type="file"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500">Attach file...</span>
+                  <i className="fas fa-paperclip text-gray-500"></i>
+                </div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Company Description</label>
+              <textarea
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
+                placeholder="Enter company description"
+                rows="7" 
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm mb-1">Contact Details</label>
+              <input
+                type="text"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm mb-4"
+                placeholder="Enter contact details"
+              />
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-center gap-4 mb-4">
+              <button className="btn bg-zinc-800 text-white w-full md:w-64 py-2 rounded-lg" onClick={closeModal}>
+                Cancel
+              </button>
+              <button className="btn bg-green text-white w-full md:w-64 py-2 rounded-lg" onClick={() => {
+                console.log('Add action');
+                closeModal();
+              }}>
+                Add
               </button>
             </div>
           </div>
