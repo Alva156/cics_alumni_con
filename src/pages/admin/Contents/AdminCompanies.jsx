@@ -100,7 +100,7 @@ function AdminCompanies() {
       <div className="flex justify-between items-center mb-4">
         <div className="text-lg">My Listed Companies</div>
         <button
-          className="btn btn-sm w-36 bg-green-500 text-white relative"
+          className="btn btn-sm w-36 bg-green text-white relative"
           onClick={addCompanySection}
         >
           +
@@ -218,9 +218,11 @@ function AdminCompanies() {
               />
             </div>
 
-            <div className="flex justify-center">
-              <button className="btn md:w-32 lg:w-40 bg-gray-300 text-black mx-2" onClick={closeModal}>Cancel</button>
-              <button className="btn md:w-32 lg:w-40 bg-gray-300 text-black mx-2" onClick={() => {
+            <div className="flex flex-col md:flex-row justify-center gap-4 mb-4">
+              <button className="btn bg-zinc-800 text-white w-full md:w-64 py-2 rounded-lg" onClick={closeModal}>
+                Cancel
+              </button>
+              <button className="btn bg-green text-white w-full md:w-64 py-2 rounded-lg" onClick={() => {
                 console.log('Save action');
                 closeModal();
               }}>
@@ -235,4 +237,3 @@ function AdminCompanies() {
 }
 
 export default AdminCompanies;
-
