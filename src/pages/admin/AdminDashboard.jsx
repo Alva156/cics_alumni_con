@@ -23,7 +23,6 @@ const AdminDashboard = () => {
   const [fontSize, setFontSize] = useState(getFontSize());
   const chartRefs = useRef([]);
 
-  // Function to get font size based on window width
   function getFontSize() {
     if (window.innerWidth < 640) {
       // Small screens
@@ -40,7 +39,6 @@ const AdminDashboard = () => {
     }
   }
 
-  // Effect to update font size on window resize
   useEffect(() => {
     const handleResize = () => {
       setFontSize(getFontSize());
@@ -52,7 +50,6 @@ const AdminDashboard = () => {
     };
   }, []);
 
-  // Chart options with dynamic font size
   const createOptions = (stepSize) => ({
     responsive: true,
     maintainAspectRatio: false,
