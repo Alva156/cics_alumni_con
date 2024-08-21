@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function AdminCompanies() {
   const [selectedCompany, setSelectedCompany] = useState(null);
@@ -9,26 +10,26 @@ function AdminCompanies() {
 
   const companies = [
     {
-      name: 'Company Name 1',
-      address: 'Address 1',
+      name: 'Company Name',
+      address: 'Address',
       image: '',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       contact: 'Contact Details'
     },
     {
-      name: 'Company Name 2',
-      address: 'Address 2',
+      name: 'Company Name',
+      address: 'Address',
       image: '',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       contact: 'Contact Details'
     },
     {
-      name: 'Company Name 3',
-      address: 'Address 3',
+      name: 'Company Name',
+      address: 'Address',
       image: '',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       contact: 'Contact Details'
-    }
+    },
   ];
 
   const openViewModal = (company) => {
@@ -99,7 +100,7 @@ function AdminCompanies() {
       <div className="flex justify-between items-center mb-4">
         <div className="text-lg">My Listed Companies</div>
         <button
-          className="btn btn-sm w-36 bg-green text-white"
+          className="btn btn-sm w-36 bg-green-500 text-white relative"
           onClick={addCompanySection}
         >
           +
@@ -120,7 +121,7 @@ function AdminCompanies() {
           </div>
           <div className="flex items-center">
             <div 
-              className="w-6 h-6 rounded-full bg-[#BE142E] flex justify-center items-center cursor-pointer mr-2 relative group"
+              className="w-4 h-4 rounded-full bg-[#BE142E] flex justify-center items-center cursor-pointer mr-4 relative group"
               onClick={(e) => { e.stopPropagation(); console.log('Delete action'); }}
             >
               <span className="hidden group-hover:block absolute bottom-8 bg-gray-700 text-white text-xs rounded px-2 py-1">
@@ -128,7 +129,7 @@ function AdminCompanies() {
               </span>
             </div>
             <div 
-              className="w-6 h-6 rounded-full bg-[#3D3C3C] flex justify-center items-center cursor-pointer relative group"
+              className="w-4 h-4 rounded-full bg-[#3D3C3C] flex justify-center items-center cursor-pointer relative group"
               onClick={(e) => { e.stopPropagation(); openEditModal(company); }}
             >
               <span className="hidden group-hover:block absolute bottom-8 bg-gray-700 text-white text-xs rounded px-2 py-1">
@@ -169,51 +170,60 @@ function AdminCompanies() {
             >
               &times;
             </button>
-            <div className="text-2xl font-medium mb-4">Edit Company</div>
+            <div className="text-xl mb-3">Edit Company</div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Company Name</label>
+              <label className="block text-sm mb-1">Company Name</label>
               <input
                 type="text"
-                className="w-full border border-black rounded-lg px-4 py-2"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
                 defaultValue={selectedCompany.name}
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Company Address</label>
+              <label className="block text-sm mb-1">Company Address</label>
               <input
                 type="text"
-                className="w-full border border-black rounded-lg px-4 py-2"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
                 defaultValue={selectedCompany.address}
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Company Image URL</label>
-              <input
-                type="text"
-                className="w-full border border-black rounded-lg px-4 py-2"
-                defaultValue={selectedCompany.image}
-              />
+              <label className="block text-sm mb-1">Company Image</label>
+              <div className="relative w-full border border-black bg-gray-100 rounded-lg px-4 py-2 text-sm">
+                <input
+                  type="file"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500">Attach file...</span>
+                  <i className="fas fa-paperclip text-gray-500"></i>
+                </div>
+              </div>
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Company Description</label>
+              <label className="block text-sm mb-1">Company Description</label>
               <textarea
-                className="w-full border border-black rounded-lg px-4 py-2"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm"
                 defaultValue={selectedCompany.description}
+                rows="7" 
               />
             </div>
+
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Contact Details</label>
+              <label className="block text-sm mb-1">Contact Details</label>
               <input
                 type="text"
-                className="w-full border border-black rounded-lg px-4 py-2"
+                className="w-full border border-black bg-gray-100 rounded-lg px-4 py-1 text-sm mb-4"
                 defaultValue={selectedCompany.contact}
               />
             </div>
-            <div className="flex justify-end">
-              <button className="btn md:w-64 w-52 bg-fgray text-white mr-2" onClick={closeModal}>
-                Cancel
-              </button>
-              <button className="btn md:w-64 w-52 bg-green text-white">
+
+            <div className="flex justify-center">
+              <button className="btn md:w-32 lg:w-40 bg-gray-300 text-black mx-2" onClick={closeModal}>Cancel</button>
+              <button className="btn md:w-32 lg:w-40 bg-gray-300 text-black mx-2" onClick={() => {
+                console.log('Save action');
+                closeModal();
+              }}>
                 Save
               </button>
             </div>
@@ -225,3 +235,4 @@ function AdminCompanies() {
 }
 
 export default AdminCompanies;
+
