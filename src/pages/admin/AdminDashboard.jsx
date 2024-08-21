@@ -181,7 +181,7 @@ const AdminDashboard = () => {
   return (
     <div className="text-black font-light mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
       <h1 className="text-xl mb-4">Dashboard</h1>
-      {/* Dashboard Cards */}
+
       <div className="mb-4 p-4 border border-black rounded-lg cursor-pointer">
         <div>
           <div className="text-sm text-black-600">Number of Users</div>
@@ -196,7 +196,7 @@ const AdminDashboard = () => {
           <div className="text-lg font-medium mb-1 mt-2">9990</div>
         </div>
       </div>
-      {/* Charts */}
+
       <div className="mb-4 p-6 border border-black rounded-lg cursor-pointer">
         <div>
           <div className="text-sm text-black-600">Academic Program</div>
