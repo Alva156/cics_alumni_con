@@ -16,6 +16,8 @@ Currently, two official plugins are available:
 5. npm i flatpickr --save
 6. npm install react-select
 7. npm i --save @fortawesome/fontawesome-svg-core
+8. npm install react-chartjs-2 chart.js
+
 
 
 
