@@ -209,7 +209,7 @@ const Homepage = () => {
             </button>
             <button
               onClick={() => (window.location.href = "/user-job")}
-              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B] text-[0.6rem] w-36 h-7 bg-[#2D2B2B] text-white rounded btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
+              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B] text-[0.57rem] w-36 h-7 bg-[#2D2B2B] text-white rounded btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
             >
               Job/Internship
             </button>
