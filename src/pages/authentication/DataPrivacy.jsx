@@ -7,6 +7,70 @@ function DataPrivacy() {
       <Header />
 
       <div className="text-black font-bold mx-4 md:mx-8 lg:mx-16 mt-8 mb-12">
+        <h1 className="text-2xl mb-4 mt-4">Steps to Access the Website</h1>
+        <div className="text-base font-normal bg-[#D9D9D9] mb-10 p-6 leading-loose">
+          <ol className="list-decimal pl-5">
+            <li className="font-bold">Register an Account</li>
+            <ul className="list-disc pl-5">
+              <li>Navigate to the registration page on our website.</li>
+              <li>
+                Provide the required personal information to create your
+                account.
+              </li>
+              <li>
+                Ensure that all details are accurate and complete before
+                submitting your registration.
+              </li>
+            </ul>
+
+            <li className="font-bold mt-4">
+              Complete the Verification Process
+            </li>
+            <ul className="list-disc pl-5">
+              <li>
+                After registering, you will receive a verification email or SMS
+                with a unique code.
+              </li>
+              <li>
+                Enter the verification code on the website to confirm your
+                account.
+              </li>
+            </ul>
+
+            <li className="font-bold mt-4">Log In</li>
+            <ul className="list-disc pl-5">
+              <li>Visit the login page of the website.</li>
+              <li>Enter your registered email address and password.</li>
+              <li>
+                Click the “Log In” button to access your account. If you forget
+                your password, use the "Forgot Password" link to reset it.
+              </li>
+            </ul>
+
+            <li className="font-bold mt-4">Explore and Browse</li>
+            <ul className="list-disc pl-5">
+              <li>
+                Once logged in, you can navigate through the various sections of
+                the website.
+              </li>
+              <li>
+                Browse through available features, connect with other users, and
+                access content relevant to your interests and needs.
+              </li>
+            </ul>
+
+            <li className="font-bold mt-4">Customize Your Experience</li>
+            <ul className="list-disc pl-5">
+              <li>Update your user profile with additional information.</li>
+            </ul>
+
+            <li className="font-bold mt-4">Inquire</li>
+            <ul className="list-disc pl-5">
+              <li>If you have questions, visit the FAQ page for assistance.</li>
+            </ul>
+          </ol>
+        </div>
+
         <h1 className="text-2xl mb-4 mt-4">Terms and Conditions</h1>
         <div className="text-base font-normal bg-[#D9D9D9] mb-10 p-6 leading-loose">
           <ul className="pl-5">
