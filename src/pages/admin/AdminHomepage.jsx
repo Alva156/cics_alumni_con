@@ -45,7 +45,7 @@ function AdminHomepage() {
             <div className="relative w-full flex-shrink-0" key={index}>
               <img
                 src={image.src}
-                className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130 transition-opacity duration-300 ease-in-out"
+                className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem] transition-opacity duration-300 ease-in-out"
                 alt={`Slide ${index + 1}`}
               />
               {/* Red opacity overlay for the first image */}
@@ -56,8 +56,8 @@ function AdminHomepage() {
               <div
                 className={`absolute inset-0 flex items-center justify-center text-center p-4 z-20 ${
                   index === 0
-                    ? "bg-red-600 bg-opacity-70 text-white text-lg p-20 sm:text-2xl  md:text-3xl lg:text-5xl xl:text-6xl font-bold p-6 rounded-lg"
-                    : "bg-black bg-opacity-60 text-white text-xxs p-20 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg"
+                    ? "bg-red-600 bg-opacity-70 text-white text-lg p-[4rem] sm:text-2xl  md:text-3xl lg:text-5xl xl:text-6xl font-bold p-6 rounded-lg"
+                    : "bg-black bg-opacity-60 text-white text-xxs p-[4rem] sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg"
                 }`}
               >
                 <span>
@@ -87,7 +87,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
@@ -108,7 +108,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
@@ -129,7 +129,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-[0.45rem] p-16 sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
@@ -152,7 +152,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-52 sm:h-60 md:h-96 lg:h-[28rem] xl:h-128 2xl:h-130"
+          className="w-full object-cover h-52 sm:h-60 md:h-96 lg:h-[28rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red  bg-opacity-70 p-4 rounded-lg">
           <p className=" mb-32 text-white text-xxs  md:mb-36 lg:mb-48 sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl text-center">
@@ -211,7 +211,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-[0.48rem] p-16  sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
@@ -234,7 +234,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-[0.48rem] p-16 sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
@@ -257,7 +257,7 @@ function AdminHomepage() {
         <img
           src={homepage2}
           alt="Homepage2"
-          className="w-full object-cover h-44 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
+          className="w-full object-cover h-48 sm:h-64 md:h-[22rem] lg:h-[26rem] xl:h-130 2xl:h-[44rem]"
         />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-xs sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
