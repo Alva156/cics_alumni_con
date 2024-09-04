@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/user/Navbar";
 import Navbar_admin from "../../components/admin/NavbarAdmin";
 import Header from "../../components/Header";
@@ -8,22 +8,102 @@ import homepage2 from "../../assets/homepage2.png";
 import "../../App.css";
 
 const Homepage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = [
+    { src: homepage1, title: "", text: "Welcome to CICS Alumni Connect!" },
+    {
+      src: homepage2,
+      title: "Mission Statement",
+      text: "To foster a vibrant and connected community of CICS alumni by providing a digital platform that enables meaningful interactions, continuous professional growth, and lasting relationships. We strive to support our alumni in their career journeys and empower them to contribute positively to society and the future of CICS.",
+    },
+    {
+      src: homepage2,
+      title: "Vision Statement",
+      text: "To be the leading platform that bridges the gap between past and present CICS students, cultivating a global network of professionals who are committed to lifelong learning, collaboration, and the advancement of their respective fields. We envision a future where every CICS alumnus feels connected, valued, and inspired to make a difference.",
+    },
+  ];
+  const totalSlides = images.length;
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
-      <div className="relative bg-white m-6 max-w-full">
-        <img
-          src={homepage1}
-          alt="Homepage1"
-          className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
-        />
-        <div className="absolute inset-0 bg-red-500 opacity-30"></div>
+      <div className="carousel relative bg-white m-6 max-w-full overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{
+            transform: `translateX(-${currentSlide * 100}%)`,
+            width: `${totalSlides * 100}%`,
+          }}
+        >
+          {images.map((image, index) => (
+            <div className="relative w-full flex-shrink-0" key={index}>
+              <img
+                src={image.src}
+                className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130 transition-opacity duration-300 ease-in-out"
+                alt={`Slide ${index + 1}`}
+              />
+              {/* Red opacity overlay for the first image */}
+              {index === 0 && (
+                <div className="absolute inset-0 bg-red opacity-40 "></div>
+              )}
+
+              <div
+                className={`absolute inset-0 flex items-center justify-center text-center p-4 z-20 ${
+                  index === 0
+                    ? "bg-red-600 bg-opacity-70 text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold p-6 rounded-lg"
+                    : "bg-black bg-opacity-60 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg"
+                }`}
+              >
+                <span>
+                  <h2 className="mb-4 font-bold">{image.title}</h2>
+                  {image.text}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+          <button
+            onClick={prevSlide}
+            className="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none text-xs md:text-sm lg:text-base xl:text-lg w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-18 m-2 md:m-3 lg:m-4 xl:m-5"
+          >
+            ❮
+          </button>
+          <button
+            onClick={nextSlide}
+            className="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none text-xs md:text-sm lg:text-base xl:text-lg w-7 h-7 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-18 m-2 md:m-3 lg:m-4 xl:m-5"
+          >
+            ❯
+          </button>
+        </div>
       </div>
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
+            This page allows you to update your personal information, including
+            primary and secondary details, contact information, attachments,
+            tertiary education, and career background. This information will be
+            visible to other Alumni users. Additionally, you can edit your
+            account email here.
+          </p>
+        </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
           <button
             onClick={() => (window.location.href = "/user-userprofile")}
@@ -34,12 +114,18 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
+            This page is where you can answer surveys made by the administrators
+            of CICS.
+          </p>
+        </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
           <button
             onClick={() => (window.location.href = "/user-survey")}
@@ -49,12 +135,20 @@ const Homepage = () => {
           </button>
         </div>
       </div>
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
+            A dedicated space for alumni to engage in discussions, share
+            experiences, and collaborate on various topics relevant to their
+            field and network. This section fosters a sense of community and
+            facilitates meaningful interactions among CICS alumni.
+          </p>
+        </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
           <button
             onClick={() => (window.location.href = "/user-threads")}
@@ -64,12 +158,19 @@ const Homepage = () => {
           </button>
         </div>
       </div>
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red  bg-opacity-70 p-4 rounded-lg">
+          <p className=" mb-52 text-white text-xxs sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-4xl text-center">
+            Pages where you can see the latest companies, news, events,
+            certifications, documents, and job/interviews that are related to
+            CICS
+          </p>
+        </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col space-y-4 pt-8">
           <div className="flex justify-between space-x-2">
             <button
@@ -94,7 +195,7 @@ const Homepage = () => {
             </button>
             <button
               onClick={() => (window.location.href = "/user-certifications")}
-              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B]  text-[0.6rem] w-36 h-8 bg-[#2D2B2B] text-white rounded btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
+              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B] text-[0.7rem] w-36 h-8 bg-[#2D2B2B] text-white rounded btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
             >
               Certifications
             </button>
@@ -108,7 +209,7 @@ const Homepage = () => {
             </button>
             <button
               onClick={() => (window.location.href = "/user-job")}
-              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B] text-[0.57rem] w-36 h-8 bg-[#2D2B2B] text-white rounded  btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
+              className="homepage-text tracking-extra-wide font-light hover:bg-[#2D2B2B] text-[0.7rem] w-36 h-8 bg-[#2D2B2B] text-white rounded btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-32 sm:w-60 md:w-64 lg:w-96"
             >
               Job/Internship
             </button>
@@ -116,12 +217,21 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
+            A page that lets users view and connect with registered CICS alumni.
+            Search for profiles to see educational backgrounds, career details,
+            and achievements, facilitating networking and engagement within the
+            CICS community.
+          </p>
+        </div>
+
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
           <button
             onClick={() => (window.location.href = "/user-alumni")}
@@ -131,12 +241,17 @@ const Homepage = () => {
           </button>
         </div>
       </div>
-      <div className="relative bg-white m-6 max-w-full">
+      <div className="relative bg-white m-6 max-w-full group">
         <img
           src={homepage2}
           alt="Homepage2"
           className="w-full object-cover h-40 sm:h-60 md:h-72 lg:h-96 xl:h-128 2xl:h-130"
         />
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="bg-red w-full h-full bg-opacity-70 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg text-center">
+            An FAQ section of the website.
+          </p>
+        </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
           <button
             onClick={() => (window.location.href = "/user-chatbot")}
