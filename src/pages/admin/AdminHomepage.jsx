@@ -56,8 +56,8 @@ function AdminHomepage() {
               <div
                 className={`absolute inset-0 flex items-center justify-center text-center p-4 z-20 ${
                   index === 0
-                    ? "bg-red-600 bg-opacity-70 text-white text-lg p-16 sm:text-2xl  md:text-3xl lg:text-5xl xl:text-6xl font-bold p-6 rounded-lg"
-                    : "bg-black bg-opacity-60 text-white text-xxs p-16 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg"
+                    ? "bg-red-600 bg-opacity-70 text-white text-lg p-20 sm:text-2xl  md:text-3xl lg:text-5xl xl:text-6xl font-bold p-6 rounded-lg"
+                    : "bg-black bg-opacity-60 text-white text-xxs p-20 sm:text-sm sm:p-24 md:text-lg md:p-28 lg:text-xl lg:p-40 xl:text-2xl xl:p-52 2xl:text-4xl 2xl:p-64 rounded-lg"
                 }`}
               >
                 <span>
