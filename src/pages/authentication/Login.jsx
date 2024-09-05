@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import signinImage from "../../assets/signin_image.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +7,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -56,18 +58,27 @@ function Login() {
               </span>
             </div>
 
-            <a href="#" className="text-sm underline mb-8 block text-left">
+            <a
+              href="/forgotpassword"
+              className="text-sm underline mb-8 block text-left"
+            >
               Forgot Password?
             </a>
 
-            <button className="bg-[#BE142E] text-white font-bold text-lg py-3 px-6 w-full mb-6 transition duration-300 ease-in-out hover:bg-[#a10c2b]">
+            <button
+              className="bg-[#BE142E] text-white font-bold text-lg py-3 px-6 w-full mb-6 transition duration-300 ease-in-out hover:bg-[#a10c2b]"
+              onClick={() => navigate("/")}
+            >
               SIGN IN
             </button>
 
             <p className="text-left mb-4 mt-8 text-sm">
               Don&apos;t have an account?
             </p>
-            <button className="bg-[#2D2B2B] text-white font-bold text-lg py-3 px-6 w-full transition duration-300 ease-in-out hover:bg-[#1a1a1a]">
+            <button
+              className="bg-[#2D2B2B] text-white font-bold text-lg py-3 px-6 w-full transition duration-300 ease-in-out hover:bg-[#1a1a1a]"
+              onClick={() => navigate("/register")}
+            >
               SIGN UP
             </button>
           </div>
