@@ -32,10 +32,10 @@ const Homepage = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 8000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
