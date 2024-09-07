@@ -27,10 +27,10 @@ function AdminHomepage() {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 20000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 20000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       <div className="carousel relative bg-white m-6 max-w-full overflow-hidden">
