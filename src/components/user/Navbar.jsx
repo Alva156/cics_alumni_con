@@ -5,9 +5,17 @@ import { MdOutlineLogout } from "react-icons/md";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+  const handleLogoutClick = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
   };
 
   return (
@@ -39,7 +47,8 @@ const Navbar = () => {
             {isDropdownOpen && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-white z-20 mt-3 w-72 p-2 shadow">
+                className="menu menu-sm dropdown-content bg-white z-20 mt-3 w-72 p-2 shadow"
+              >
                 <li className="p-2.5 border-b border-hgray last:border-b-0">
                   <a href="/">Home</a>
                 </li>
@@ -138,18 +147,41 @@ const Navbar = () => {
         </div>
         <div className="navbar-end relative">
           <a
-            className="btn btn-ghost px-3 flex items-center gap-2 mr-1.5 md:mr-7 "
+            className="btn btn-ghost px-3 flex items-center gap-2 mr-1.5 md:mr-7"
             onMouseEnter={() => setIsTooltipVisible(true)}
             onMouseLeave={() => setIsTooltipVisible(false)}
+            onClick={handleLogoutClick}
           >
             <MdOutlineLogout size={24} />
           </a>
 
-          {/* Tooltip */}
           {isTooltipVisible && (
-            <div className="absolute top-full mt-1  mr-3.5 md:mr-7 bg-gray-800 text-white text-xxs md:text-xs rounded py-1 px-1.5 z-10 ">
+            <div className="absolute top-full mt-1 mr-3.5 md:mr-7 bg-gray-800 text-white text-xxs md:text-xs rounded py-1 px-1.5 z-10">
               Logout
             </div>
+          )}
+
+          {isModalVisible && (
+            <dialog id="my_modal_5" className="modal modal-middle " open>
+              <div className="modal-box">
+                <h3 className="font-bold text-lg">Logout</h3>
+                <p className="py-4">Are you sure you want to log out?</p>
+                <div className="modal-action">
+                  <button
+                    className="btn bg-green text-white w-20"
+                    onClick={closeModal}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    className="btn bg-red text-white w-20"
+                    onClick={closeModal}
+                  >
+                    No
+                  </button>
+                </div>
+              </div>
+            </dialog>
           )}
         </div>
       </div>
